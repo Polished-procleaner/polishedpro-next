@@ -1,7 +1,6 @@
 /* src/app/globals.css */
 @import "tailwindcss";
 
-/* ========= Variables del tema (equivalente a :root original) ========= */
 @theme {
   --color-primary-green: #22c55e;
   --color-primary-blue:  #0ea5e9;
@@ -26,21 +25,19 @@
   --color-surface-alt: #f0fdf4;
   --color-border:      #e5e7eb;
 
-  /* Fuentes inyectadas desde layout.jsx */
   --font-sans:    var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
   --font-display: var(--font-space), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
 }
 
 :root { color-scheme: light; }
 
-/* ========= Base ========= */
 html, body {
   @apply bg-[--color-surface] text-[--color-text-primary] antialiased;
   font-family: var(--font-sans);
 }
+
 body { @apply pt-20 overflow-x-hidden; }
 
-/* ========= Helpers ========= */
 .container-pp { @apply mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8; }
 .section { @apply py-16 sm:py-20; }
 .section-header { @apply text-center mb-12; }
@@ -63,7 +60,6 @@ body { @apply pt-20 overflow-x-hidden; }
 .section-title   { @apply font-display font-bold tracking-tight text-3xl sm:text-4xl md:text-5xl; }
 .section-subtitle{ @apply text-[--color-text-secondary] text-base sm:text-lg max-w-xl mx-auto; }
 
-/* ========= Page Hero ========= */
 .page-hero {
   @apply text-white py-16 sm:py-20 text-center;
   background: var(--gradient-primary);
@@ -71,7 +67,6 @@ body { @apply pt-20 overflow-x-hidden; }
 .page-hero h1 { @apply font-display font-bold text-4xl sm:text-5xl md:text-6xl; }
 .page-hero p  { @apply opacity-90 text-lg max-w-2xl mx-auto; }
 
-/* ========= Animaciones ========= */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(30px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -88,25 +83,20 @@ body { @apply pt-20 overflow-x-hidden; }
 .animate-float   { animation: float 6s ease-in-out infinite; }
 .animate-pulse   { animation: pulse 3s ease-in-out infinite; }
 
-/* ================== Grids ================== */
 .grid-cards-3 { @apply grid gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-3; }
 .services-grid { @apply grid gap-8 sm:gap-10 grid-cols-1 md:grid-cols-2 xl:grid-cols-3; }
 
-/* ================== Cards / Service Cards ================== */
-/* Alias para compatibilidad: .card == .service-card */
 .card,
 .service-card {
   @apply bg-[--color-surface] rounded-[24px] p-10 border border-[--color-border]
          shadow-[0_8px_25px_rgba(0,0,0,0.08)] relative overflow-hidden transition-all duration-300;
 }
 
-/* Efecto hover */
 .card:hover,
 .service-card:hover {
   @apply -translate-y-2 shadow-[0_20px_40px_rgba(0,0,0,0.12)];
 }
 
-/* Barra superior animada al hover (solo en service-card para no afectar otras) */
 .service-card::before {
   content: "";
   @apply absolute top-0 left-0 right-0 h-1
@@ -115,31 +105,26 @@ body { @apply pt-20 overflow-x-hidden; }
 }
 .service-card:hover::before { @apply scale-x-100; }
 
-/* Badge / Icono (alias) */
 .icon-badge,
 .service-icon {
   @apply mb-6 w-[70px] h-[70px] rounded-2xl flex items-center justify-center text-white text-2xl;
   background: linear-gradient(135deg, var(--color-primary-blue) 0%, var(--color-primary-green) 100%);
 }
 
-/* Tipografía de contenidos dentro de tarjetas */
 .card h3,
 .service-card h3 { @apply font-display text-[1.4rem] font-semibold text-[--color-text-primary] mb-1; }
 
 .card p,
 .service-card p { @apply mt-3 text-[--color-text-secondary] leading-relaxed; }
 
-/* Listas de features */
 .card ul,
 .service-card ul { @apply mt-4 space-y-2 text-sm text-[--color-text-secondary]; }
 
 .card li,
 .service-card li { @apply flex items-center gap-2; }
 
-/* Punto verde para bullets tipo “●” */
 .card li > span,
 .service-card li > span,
 .service-features i { color: var(--color-primary-green); }
 
-/* Lista semántica de features (si la usas) */
 .service-features { @apply list-none space-y-2; }

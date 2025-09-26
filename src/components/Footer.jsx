@@ -8,10 +8,8 @@ import { FaFacebookF, FaInstagram, FaTiktok, FaComment } from "react-icons/fa6";
 export default function Footer() {
     return (
         <footer className="bg-[#064e3b] text-white">
-            {/* contenido */}
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10 pt-12 pb-8">
                 <div className="grid gap-10 md:grid-cols-4">
-                    {/* Col 1: logo + texto + redes */}
                     <div>
                         <div className="flex items-center gap-3 mb-3">
                             <Image
@@ -78,7 +76,6 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Col 2: Residential */}
                     <div>
                         <h3 className="text-[18px] font-semibold mb-4">Residential Services</h3>
                         <ul className="space-y-2 text-white/90">
@@ -89,7 +86,6 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Col 3: Commercial */}
                     <div>
                         <h3 className="text-[18px] font-semibold mb-4">Commercial Services</h3>
                         <ul className="space-y-2 text-white/90">
@@ -100,7 +96,6 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Col 4: Contact */}
                     <div>
                         <h3 className="text-[18px] font-semibold mb-4">Contact Us</h3>
                         <ul className="space-y-2 text-white/90">
@@ -113,7 +108,6 @@ export default function Footer() {
                     </div>
                 </div>
 
-                {/* Divider + copyright */}
                 <div className="mt-8 pt-6 border-t border-white/10 text-center text-white/70">
                     <p>© 2024 PolishedPro Cleaners. All rights reserved. | Leave the Cleaning to Us</p>
                 </div>

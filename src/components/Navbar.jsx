@@ -39,12 +39,10 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-white/20 bg-white/95 backdrop-blur-xl transition-all">
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        {/* Logo */}
         <Link
           href="/"
           className="flex items-center gap-2 transition-transform hover:scale-105"
         >
-          {/* Asegúrate de que el logo esté en /public/images/img1.png */}
           <img
             src="/images/img1.png"
             alt="PolishedPro"
@@ -55,7 +53,6 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Botón mobile */}
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
@@ -67,7 +64,6 @@ export default function Navbar() {
           <span className="h-[3px] w-6 rounded bg-gray-900" />
         </button>
 
-        {/* Menú desktop */}
         <ul className="hidden items-center gap-10 md:flex">
           {NAV.map(({ href, label }) => {
             const active = isActive(href);
@@ -81,17 +77,14 @@ export default function Navbar() {
             );
           })}
 
-          {/* CTA con hover copiado del original */}
           <li>
             <div className="relative inline-block group">
-              {/* Glow detrás en hover */}
               <span
                 className="pointer-events-none absolute -inset-1 rounded-full
                            bg-gradient-to-r from-sky-400/40 to-green-400/40
                            blur-xl opacity-0 transition-opacity duration-300
                            group-hover:opacity-100"
               />
-              {/* Botón */}
               <Link
                 href="/contact"
                 className="relative inline-flex h-11 items-center rounded-full px-6
@@ -103,7 +96,6 @@ export default function Navbar() {
               >
                 Get Quote
               </Link>
-              {/* Línea fina inferior en hover */}
               <span
                 className="pointer-events-none absolute left-1/2 -translate-x-1/2
                            -bottom-[10px] h-[3px] w-[40px] rounded-full
@@ -116,7 +108,6 @@ export default function Navbar() {
         </ul>
       </div>
 
-      {/* Menú mobile */}
       {open && (
         <div className="md:hidden">
           <ul className="mx-4 mb-4 rounded-2xl border border-gray-200 bg-white/95 p-3 shadow-lg backdrop-blur">
@@ -137,7 +128,7 @@ export default function Navbar() {
                 </li>
               );
             })}
-            {/* CTA móvil con el mismo efecto (se adapta al ancho) */}
+
             <li className="pt-2">
               <div className="relative inline-block w-full group">
                 <span

@@ -67,7 +67,6 @@ export default function Stats() {
                    border border-[#e5e7eb]
                    transition-transform duration-200 hover:-translate-y-1"
                     >
-                        {/* Número grande con gradiente, como el CSS original */}
                         <div
                             ref={(el) => (countersRef.current[i] = el)}
                             data-target={stat.num}
@@ -79,7 +78,6 @@ export default function Stats() {
                             {stat.num}
                         </div>
 
-                        {/* Etiqueta */}
                         <div className="text-[15px] md:text-base font-medium text-[#6b7280]">
                             {stat.label}
                         </div>

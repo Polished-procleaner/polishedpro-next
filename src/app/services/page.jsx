@@ -11,16 +11,13 @@ import PageHero from "@/components/PageHero";
 export default function ServicesPage() {
     return (
         <>
-            {/* Hero */}
             <PageHero
                 title="Professional Cleaning Services"
                 subtitle="From homes to offices, we deliver exceptional cleaning solutions tailored to your needs."
             />
 
-            {/* Services */}
             <section className="py-20 bg-white">
                 <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-                    {/* Residential */}
                     <div className="mb-20">
                         <h2 className="text-center font-space text-3xl font-bold mb-12 relative pb-4">
                             Residential Cleaning
@@ -106,7 +103,6 @@ export default function ServicesPage() {
                         </div>
                     </div>
 
-                    {/* Specialized */}
                     <div>
                         <h2 className="text-center font-space text-3xl font-bold mb-12 relative pb-4">
                             Specialized Floor Cleaning Services

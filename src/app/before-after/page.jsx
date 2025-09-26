@@ -68,13 +68,11 @@ export default function BeforeAfterPage() {
 
     return (
         <main>
-            {/* Page Hero */}
             <PageHero
                 title="Before & After Transformations"
                 subtitle="See the PolishedPro difference - real results from real projects in our community."
             />
 
-            {/* Carousel */}
             <section className="bg-green-50 py-16">
                 <div className="max-w-6xl mx-auto px-4 relative overflow-hidden">
                     <div
@@ -83,7 +81,6 @@ export default function BeforeAfterPage() {
                     >
                         {slides.map((slide, i) => (
                             <div key={i} className="basis-full shrink-0 grow-0 flex justify-center">
-                                {/* ⬇️ aquí va relative */}
                                 <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl group">
                                     <div className="w-full aspect-[4/3] md:aspect-[16/9] bg-white/0">
                                         <img
@@ -101,7 +98,6 @@ export default function BeforeAfterPage() {
                         ))}
                     </div>
 
-                    {/* Controls */}
                     <button
                         onClick={prevSlide}
                         className="absolute top-1/2 left-4 -translate-y-1/2 bg-gradient-to-br from-sky-500 to-green-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition"
@@ -115,7 +111,6 @@ export default function BeforeAfterPage() {
                         <FaChevronRight />
                     </button>
 
-                    {/* Progress Bar */}
                     <div className="w-full bg-black/10 h-1 rounded-full mt-8 overflow-hidden">
                         <div
                             className="h-full bg-gradient-to-r from-sky-500 to-green-500 transition-all duration-500"
@@ -123,7 +118,6 @@ export default function BeforeAfterPage() {
                         />
                     </div>
 
-                    {/* Dots */}
                     <div className="flex justify-center gap-3 mt-4 flex-wrap">
                         {slides.map((_, i) => (
                             <button
@@ -134,7 +128,6 @@ export default function BeforeAfterPage() {
                         ))}
                     </div>
 
-                    {/* Counter */}
                     <div className="text-center mt-4">
                         <span className="bg-white px-4 py-1 rounded-full shadow font-display font-semibold">
                             {current + 1} / {total}
@@ -143,17 +136,14 @@ export default function BeforeAfterPage() {
                 </div>
             </section>
 
-            {/* Social Media */}
             <section className="py-20 bg-white">
                 <div className="max-w-6xl mx-auto px-6">
-                    {/* Badge */}
                     <div className="text-center mb-6">
                         <span className="inline-block px-5 py-2 rounded-full text-white font-semibold shadow-md bg-gradient-to-r from-sky-500 to-green-500">
                             Connect With Us
                         </span>
                     </div>
 
-                    {/* Título + Subtítulo */}
                     <h2 className="text-center font-display font-bold text-3xl md:text-5xl text-gray-900">
                         Follow Our Cleaning Journey
                     </h2>
@@ -161,7 +151,6 @@ export default function BeforeAfterPage() {
                         See our latest transformations, cleaning tips, and behind-the-scenes content on social media.
                     </p>
 
-                    {/* Tarjetas dinámicas */}
                     <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
                         {platforms.map(({ name, desc, href, cta, Icon }) => (
                             <div
@@ -191,7 +180,6 @@ export default function BeforeAfterPage() {
                 </div>
             </section>
 
-            {/* CTA */}
             <CTASection
                 title={"Want Results Like These?"}
                 description={`Let us transform your space with the same professional care and attention to detail.`}

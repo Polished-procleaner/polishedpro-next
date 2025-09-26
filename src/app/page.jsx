@@ -2,24 +2,44 @@
 
 "use client";
 import { FaCalendarCheck, FaPlay, FaHeart } from "react-icons/fa";
+import { FaHome, FaBuilding, FaThLarge, FaAward } from "react-icons/fa";
 import CTASection from "@/components/CTASection";
 import Stats from "@/components/Stats";
-
+import Carousel from "@/components/Carousel";
+import SectionForm from "@/components/SectionForm";
 
 export default function HomePage() {
 
-  const CARDS = [
-    { title: "Residential", sub: "Home cleaning experts", icon: "fa-home" },
-    { title: "Commercial", sub: "Office & warehouse", icon: "fa-building" },
-    { title: "Specialized", sub: "Floor care specialists", icon: "fa-th-large" },
-    { title: "5-Star Rated", sub: "Customer approved", icon: "fa-award" },
-  ];
+  const slides = [
+    {
+      title: "Residential",
+      subtitle: "Home cleaning experts",
+      src: "/images/BA/27.png",
+      Icon: FaHome,
+    },
+    {
+      title: "Commercial",
+      subtitle: "Office & warehouse",
+      src: "/images/BA/24.png",
+      Icon: FaBuilding,
+    },
+    {
+      title: "Specialized",
+      subtitle: "Floor care specialists",
+      src: "/images/BA/21.png",
+      Icon: FaThLarge,
+    },
+    {
+      title: "5-Star Rated",
+      subtitle: "Customer approved",
+      src: "/images/BA/6.png",
+      Icon: FaAward,
+    },
+  ]
 
   return (
     <main>
-      {/* ===================== HERO ===================== */}
       <section className="relative flex items-center min-h-[calc(100vh-80px)] overflow-hidden bg-gradient-to-br from-sky-500 to-green-500">
-        {/* patrón sutil como en el original */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-30"
@@ -29,7 +49,6 @@ export default function HomePage() {
           }}
         />
         <div className="relative z-10 grid items-center max-w-[1400px] w-full gap-16 px-8 py-2 text-center md:text-left mx-auto md:grid-cols-2">
-          {/* Columna izquierda (texto) */}
           <div className="text-white">
             <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 text-sm rounded-full backdrop-blur-md bg-white/10 border border-white/20">
               Premium Cleaning Services
@@ -68,39 +87,19 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Columna derecha (tarjetas 2x2 — 1:1 con original) */}
           <div className="grid place-items-center">
-            <div className="grid grid-cols-2 gap-8 max-w-[560px] w-full">
-              {CARDS.map(({ title, sub, icon }, i) => (
-                <div
-                  key={i}
-                  className="relative rounded-[20px] p-6 text-center
-                     bg-white/10 backdrop-blur-xl border border-white/20
-                     shadow-[0_10px_30px_rgba(0,0,0,0.08)]
-                     transition-transform duration-300 hover:-translate-y-2"
-                  style={{ minHeight: 180 }}
-                >
-                  <i
-                    className={`fas ${icon} mx-auto mb-3 text-[40px] leading-none
-                        bg-gradient-to-br from-[#fbbf24] to-[#fde047]
-                        bg-clip-text text-transparent`}
-                    aria-hidden="true"
-                  />
-                  <h3 className="text-[1.1rem] font-semibold text-white">{title}</h3>
-                  <p className="mt-1 text-[0.9rem] text-white/80">{sub}</p>
+            <Carousel
+              className="w-full max-w-[560px]"
+              slides={slides}
+              interval={3000}
+            />
 
-                  <div className="pointer-events-none absolute inset-0 rounded-[20px] ring-1 ring-white/15" />
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
 
-      {/* ===================== STATS ===================== */}
       <Stats />
 
-      {/* ===================== CTA ===================== */}
       <CTASection
         title={"Ready to Fall in Love with Your Space Again?"}
         description={`Join our growing family of satisfied customers who've discovered
@@ -111,6 +110,7 @@ export default function HomePage() {
         ButtonIcon={FaHeart}
         buttonLink={"/contact"}
       />
+      <SectionForm />
     </main>
   );
 }

@@ -11,7 +11,6 @@ export default function CTASection({
 }) {
     return (
         <section className="relative py-20 text-center text-white bg-gradient-to-br from-sky-500 to-green-500 overflow-hidden">
-            {/* Imagen de fondo semitransparente */}
             <div className="absolute inset-0 flex items-center justify-center opacity-10">
                 <Image
                     src="/images/img1.png"

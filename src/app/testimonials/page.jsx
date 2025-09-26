@@ -95,10 +95,8 @@ export default function ReviewsPage() {
                 subtitle={`Real feedback from real people who've experienced the PolishedPro difference.`}
             />
 
-            {/* STATS */}
             <Stats/>
 
-            {/* TESTIMONIALS */}
             <section className="bg-[#f0fdf4]">
                 <div className="max-w-6xl mx-auto px-6 py-16">
                     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -120,10 +118,8 @@ export default function ReviewsPage() {
                 </div>
             </section>
 
-            {/* TRUST INDICATORS */}
             <section className="py-20 bg-[#f0fdf4]">
                 <div className="max-w-6xl mx-auto px-6">
-                    {/* Encabezado */}
                     <div className="text-center mb-12">
                         <span className="inline-block px-5 py-2 rounded-full text-white font-semibold shadow-md bg-gradient-to-r from-sky-500 to-green-500 mb-4">
                             Trust & Quality
@@ -137,7 +133,6 @@ export default function ReviewsPage() {
                         </p>
                     </div>
 
-                    {/* Grid de tarjetas */}
                     <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                         {cards.map((item, i) => (
                             <ServiceCard
