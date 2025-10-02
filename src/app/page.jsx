@@ -7,7 +7,7 @@ import CTASection from "@/components/CTASection";
 import Stats from "@/components/Stats";
 import Carousel from "@/components/Carousel";
 import SectionForm from "@/components/SectionForm";
-
+import Card from "@/components/Card";
 export default function HomePage() {
 
   const slides = [
@@ -98,18 +98,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Stats />
 
-      <CTASection
-        title={"Ready to Fall in Love with Your Space Again?"}
-        description={`Join our growing family of satisfied customers who've discovered
-            what professional cleaning can really do. We promise honest pricing,
-            exceptional results, and service that makes you smile. Let's chat
-            about your space!`}
-        buttonText={"Start Your Transformation"}
+      <Stats />
+<Card   buttonText={"Start Your Transformation"}
         ButtonIcon={FaHeart}
-        buttonLink={"/contact"}
-      />
+        buttonLink={"/contact"}></Card>
+     
       <SectionForm />
     </main>
   );
