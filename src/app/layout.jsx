@@ -4,6 +4,7 @@ import "./globals.css";
 import { Inter, Space_Grotesk } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import NewFooter from "@/components/NewFooter";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -42,7 +43,8 @@ export default function RootLayout({ children }) {
       <body className="min-h-dvh flex flex-col bg-[--color-surface] text-[--color-text-primary] pt-20">
         <Navbar />
         <main className="flex-1">{children}</main>
-        <Footer />
+      
+        <NewFooter />
       </body>
     </html>
   );
