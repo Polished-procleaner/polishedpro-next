@@ -47,7 +47,7 @@ export default function SectionForm() {
     return (
         <section className="py-20 bg-white">
             <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 px-6">
-                <aside className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-emerald-800 via-emerald-900 to-sky-900 p-8 md:p-10 text-white shadow-xl">
+                <aside className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-sky-500 via-sky-700 to-sky-900 p-8 md:p-10 text-white shadow-xl">
                     <div className="pointer-events-none absolute -top-20 -right-16 h-64 w-64 rounded-full bg-white/10 blur-2xl" />
 
                     <h3 className="font-display text-2xl md:text-3xl font-bold">
@@ -66,7 +66,7 @@ export default function SectionForm() {
                                 href={href}
                                 className="group flex items-start gap-4 rounded-2xl p-4 transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90 focus-visible:-translate-y-0.5 focus-visible:opacity-90 outline-none focus-visible:ring-4 focus-visible:ring-yellow-300/30"
                             >
-                                <span className="grid h-12 w-12 place-items-center rounded-[14px] bg-yellow-400 text-emerald-900 shadow-md transition-colors duration-300 group-hover:text-sky-600">
+                                <span className="grid h-12 w-12 place-items-center rounded-[14px] bg-white text-sky-900 shadow-md transition-colors duration-300 group-hover:text-sky-600">
                                     <Icon className="text-lg" />
                                 </span>
                                 <span>

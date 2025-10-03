@@ -84,8 +84,8 @@ export default function Example() {
   return (
     <footer className="bg-white">
        
-      <div className="mx-auto max-w-7xl px-6 pt-16 pb-8 sm:pt-24 lg:px-8 lg:pt-32">
-       <div className="mb-9 border-t border-gray-900/10 pt-8 sm:mb-10 lg:mb-15">
+      <div className="mx-auto max-w-7xl px-6 pt-16 pb-8 sm:pt-24 lg:px-8 lg:pt-2">
+       <div className="mb-9 border-t border-gray-900/10 pt-8 sm:mb-12 lg:mb-17">
           
            </div>
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
@@ -164,7 +164,7 @@ export default function Example() {
             </div>
           </div>
         </div>
-        <div className="mt-9 border-t border-gray-900/10 pt-8 sm:mt-10 lg:mt-15">
+        <div className="mt-9 border-t border-gray-900/10 pt-8 sm:mt-12 lg:mt-17">
           <p className="text-sm/6 text-gray-600">&copy; 2024 PolishedPro Cleaners. All rights reserved. | Leave the Cleaning to Us.</p>
         </div>
       </div>

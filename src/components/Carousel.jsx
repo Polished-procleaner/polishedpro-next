@@ -44,7 +44,7 @@ export default function Carousel({ slides = [], interval = 4500, className = "" 
                 resume();
             }}
         >
-            <div className="overflow-hidden rounded-[20px] border border-white/20 bg-white/10 backdrop-blur-xl shadow-[0_20px_60px_-30px_rgba(0,0,0,0.45)]">
+            <div className="overflow-hidden rounded-[20px] border border-none bg-white/10 backdrop-blur-xl shadow-[0_20px_60px_-30px_rgba(0,0,0,0.45)]">
                 <div
                     className="flex transition-transform duration-700 ease-out"
                     style={{ transform: `translateX(-${current * 100}%)` }}
@@ -81,13 +81,13 @@ export default function Carousel({ slides = [], interval = 4500, className = "" 
 
             <button
                 onClick={prev}
-                className="absolute top-1/2 left-4 -translate-y-1/2 bg-gradient-to-br from-sky-500 to-green-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition"
+                className="absolute top-1/2 left-4 -translate-y-1/2 bg-gradient-to-br w-10 h-10 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition"
             >
                 <FaChevronLeft />
             </button>
             <button
                 onClick={next}
-                className="absolute top-1/2 right-4 -translate-y-1/2 bg-gradient-to-br from-sky-500 to-green-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition"
+                className="absolute top-1/2 right-4 -translate-y-1/2 bg-gradient-to-br w-10 h-10 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition"
             >
                 <FaChevronRight />
             </button>

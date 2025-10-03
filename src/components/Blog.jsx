@@ -1,73 +1,77 @@
 const posts = [
   {
     id: 1,
-    title: 'Boost your conversion rate',
+    title: 'Spotless Spaces: Your Guide to a Cleaner Home Every Day',
     href: '#',
     description:
-      'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+     'Discover practical tips, eco-friendly cleaning hacks, and room-by-room guides to keep your home sparkling clean without the stress. Perfect for busy families or anyone wanting to stay organized and mess-free.',
     imageUrl:
-      'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80',
-    date: 'Mar 16, 2020',
+      '/images/BA/b11.jpg',
+    date: 'Mar 16, 2025',
     datetime: '2020-03-16',
     category: { title: 'Marketing', href: '#' },
     author: {
-      name: 'Michael Foster',
-      role: 'Co-Founder / CTO',
+          name: 'PolishedPro',
+      role: 'Blog Author',
       href: '#',
       imageUrl:
-        'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        '/images/img1.png',
     },
   },
   {
     id: 2,
-    title: 'How to use search engine optimization to drive sales',
+    title: 'Clean & Professional: Commercial Cleaning Insights for Business Owners',
     href: '#',
-    description: 'Optio cum necessitatibus dolor voluptatum provident commodi et. Qui aperiam fugiat nemo cumque.',
+    description: 'Learn how to maintain a pristine workspace that impresses clients and boosts employee productivity. This blog covers industry standards, cleaning schedules, and best practices for offices, retail spaces, and more.',
     imageUrl:
-      'https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80',
-    date: 'Mar 10, 2020',
+     '/images/BA/b12.jpg',
+    date: 'Mar 10, 2025',
     datetime: '2020-03-10',
     category: { title: 'Sales', href: '#' },
     author: {
-      name: 'Lindsay Walton',
-      role: 'Front-end Developer',
+         name: 'PolishedPro',
+      role: 'Blog Author',
       href: '#',
       imageUrl:
-        'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        '/images/img1.png',
     },
   },
   {
     id: 3,
-    title: 'Improve your customer experience',
+    title: 'The Fresh Life: Simple Routines for a Cleaner, Healthier Living Space',
     href: '#',
     description:
-      'Cupiditate maiores ullam eveniet adipisci in doloribus nulla minus. Voluptas iusto libero adipisci rem et corporis. Nostrud sint anim sunt aliqua. Nulla eu labore irure incididunt velit cillum quis magna dolore.',
+      'Explore minimal-effort cleaning routines, product reviews, and health-focused cleaning methods to create a safe and welcoming environment at home. Ideal for those wanting a balanced and refreshing lifestyle.',
     imageUrl:
-      'https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80',
-    date: 'Feb 12, 2020',
+     '/images/BA/b14.jpg',
+    date: 'Feb 12, 2025',
     datetime: '2020-02-12',
     category: { title: 'Business', href: '#' },
     author: {
-      name: 'Tom Cook',
-      role: 'Director of Product',
+      name: 'PolishedPro',
+      role: 'Blog Author',
       href: '#',
       imageUrl:
-        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        '/images/img1.png',
     },
   },
 ]
 
 export default function Example() {
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-white py-20 sm:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl">
-            From the blog
-          </h2>
-          <p className="mt-2 text-lg/8 text-gray-600">Learn how to grow your business with our expert advice.</p>
+      
+
+
+          <div className="sm:flex sm:items-baseline sm:justify-between">
+          <h2 className="text-3xl font-bold tracking-tight text-sky-500">The Blog</h2>
+          <a href="/services" className="hidden text-sm font-semibold text-green-600 hover:text-green-800 sm:block">
+            Browse all blogs
+            <span aria-hidden="true"> &rarr;</span>
+          </a>
         </div>
-        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+        <div className="mx-auto mt-6 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {posts.map((post) => (
             <article key={post.id} className="flex flex-col items-start justify-between">
               <div className="relative w-full">
@@ -87,7 +91,7 @@ export default function Example() {
                     href={post.category.href}
                     className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
                   >
-                    {post.category.title}
+                    
                   </a>
                 </div>
                 <div className="group relative grow">
