@@ -109,7 +109,7 @@ export default function Footer() {
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-white/10 text-center text-white/70">
-                    <p>© 2024 PolishedPro Cleaners. All rights reserved. | Leave the Cleaning to Us</p>
+                    <p>© PolishedPro Cleaners. All rights reserved. | Leave the Cleaning to Us</p>
                 </div>
             </div>
         </footer>
