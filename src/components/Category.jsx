@@ -25,7 +25,7 @@ export default function Category() {
             <div className="absolute inset-0 flex items-end p-6">
               <div>
                 <h3 className="font-semibold text-white">
-                  <a href="#">
+                  <a href="/services">
                     <span className="absolute inset-0" />
                     Residential Cleaning
                   </a>
