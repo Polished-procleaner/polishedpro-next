@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 
-export default function Example({  buttonText,
+export default function Card({  buttonText,
     buttonLink,
     ButtonIcon}) {
  
