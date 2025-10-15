@@ -16,7 +16,7 @@ const inter = Inter({
 const space = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space",
-  weight: ["400", "500", "600", "700"], // incluye 700 para bold
+  weight: ["400", "500", "600", "700"], 
   display: "swap",
 });
 
@@ -31,7 +31,7 @@ export const metadata = {
     ],
     apple: "/apple-touch-icon.png",
   },
-  manifest: "/site.webmanifest", // opcional si tienes PWA
+  manifest: "/site.webmanifest", 
 };
 
 
