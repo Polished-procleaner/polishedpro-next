@@ -21,7 +21,7 @@ const space = Space_Grotesk({
 });
 
 export const metadata = {
-  title: "PolishedPro Cleaners",
+  title: "PolishedPro Cleaner",
   description: "Leave the Cleaning to Us",
   icons: {
     icon: [
