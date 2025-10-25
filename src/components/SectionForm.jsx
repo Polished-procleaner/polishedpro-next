@@ -147,20 +147,14 @@ export default function SectionForm() {
 
 
  
-  // ✅ Simular visita a /gracias para Marketing (Google Analytics)
-  if (typeof window !== "undefined" && window.dataLayer) {
-    console.log("✅ Enviando page_view virtual a /gracias");
-    
-    window.dataLayer.push({
-      event: 'Form_view',
-      page_path: '/gracias',
-      page_title: 'Thank You - Form Submitted',
-    });
-    
-    console.log("✅ Evento page_view enviado correctamente");
-  } else {
-    console.error("❌ dataLayer no está disponible");
-  }
+window.history.pushState({}, '', '/gracias');
+
+window.dataLayer.push({
+  event: 'page_view',
+  page_path: '/gracias',
+  page_title: 'Thank You - Form Submitted',
+});
+
 
         
       } else {
