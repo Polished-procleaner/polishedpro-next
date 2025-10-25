@@ -145,23 +145,14 @@ export default function SectionForm() {
           phone: formData.phone,
         });
 
-// 🟦 Simular una visita a URL de gracias para Google
-if (typeof window !== "undefined" && window.gtag) {
-  window.gtag("event", "page_view", {
-    page_path: "/gracias", // URL simulada
-    page_title: "Thank You",
-  });
-
-  // Opcional: también disparar conversión GA4 estándar
-  window.gtag("event", "generate_lead", {
-    event_category: "Form",
-    event_label: "Contact Form Submission",
-    value: 1,
-  });
-}
-
-
-
+   // Google Analytics 4 - Simular página de gracias
+        if (typeof window !== "undefined" && window.gtag) {
+          window.gtag("event", "page_view", {
+            page_path: "/gracias",
+            page_title: "Thank You - Form Submitted",
+            page_location: window.location.origin + "/gracias"
+          });
+        }
 
 
         
