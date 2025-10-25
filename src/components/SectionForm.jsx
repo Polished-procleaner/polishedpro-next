@@ -145,18 +145,22 @@ export default function SectionForm() {
           phone: formData.phone,
         });
 
-  // Simular visita a /gracias para Google Analytics
-        if (typeof window !== "undefined" && window.gtag) {
-          console.log("✅ Enviando page_view a Google Analytics:");
-          console.log("📍 URL virtual: /gracias");
-          window.gtag("event", "page_view", {
-            page_path: "/gracias",
-            page_title: "Thank You - Form Submitted",
-          });
-          console.log("✅ Evento enviado correctamente");
-        } else {
-          console.error("❌ gtag no está disponible");
-        }
+
+ 
+  // ✅ Simular visita a /gracias para Marketing (Google Analytics)
+  if (typeof window !== "undefined" && window.dataLayer) {
+    console.log("✅ Enviando page_view virtual a /gracias");
+    
+    window.dataLayer.push({
+      event: 'page_view',
+      page_path: '/gracias',
+      page_title: 'Thank You - Form Submitted',
+    });
+    
+    console.log("✅ Evento page_view enviado correctamente");
+  } else {
+    console.error("❌ dataLayer no está disponible");
+  }
 
         
       } else {
