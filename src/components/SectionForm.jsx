@@ -152,7 +152,7 @@ export default function SectionForm() {
     console.log("✅ Enviando page_view virtual a /gracias");
     
     window.dataLayer.push({
-      event: 'page_view',
+      event: 'Form_view',
       page_path: '/gracias',
       page_title: 'Thank You - Form Submitted',
     });
