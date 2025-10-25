@@ -145,35 +145,20 @@ export default function SectionForm() {
           phone: formData.phone,
         });
 
- // Google Analytics 4 - Simular página de gracias
-        if (typeof window !== "undefined") {
-          setTimeout(() => {
-            // Método 1: gtag directo
-            if (window.gtag) {
-              console.log("Enviando evento page_view a /gracias via gtag");
-              window.gtag("event", "page_view", {
-                page_path: "/gracias",
-                page_title: "Thank You - Form Submitted",
-                page_location: window.location.origin + "/gracias"
-              });
-            }
-            
-            // Método 2: dataLayer (por si gtag no funciona)
-            if (window.dataLayer) {
-              console.log("Enviando evento via dataLayer");
-              window.dataLayer.push({
-                event: "page_view",
-                page_path: "/gracias",
-                page_title: "Thank You - Form Submitted",
-                page_location: window.location.origin + "/gracias"
-              });
-            }
-            
-            if (!window.gtag && !window.dataLayer) {
-              console.error("Ni gtag ni dataLayer están disponibles");
-            }
-          }, 100);
+  // Simular visita a /gracias para Google Analytics
+        if (typeof window !== "undefined" && window.gtag) {
+          console.log("✅ Enviando page_view a Google Analytics:");
+          console.log("📍 URL virtual: /gracias");
+          window.gtag("event", "page_view", {
+            page_path: "/gracias",
+            page_title: "Thank You - Form Submitted",
+          });
+          console.log("✅ Evento enviado correctamente");
+        } else {
+          console.error("❌ gtag no está disponible");
         }
+
+        
       } else {
         setSubmitStatus("error");
       }
@@ -184,7 +169,7 @@ export default function SectionForm() {
       setIsSubmitting(false);
     }
   };
-  
+
   return (
     <section className="py-20 bg-white">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 px-6">
