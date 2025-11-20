@@ -109,6 +109,20 @@ export default function SectionForm() {
     setSubmitStatus(null);
 
     try {
+      // Crear la fecha en formato legible
+      const now = new Date();
+      const date = now.toLocaleDateString('es-ES', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+      
+      // Agregar la fecha al payload
+      const dataToSend = {
+        ...formData,
+        date: date
+      };
+
       const response = await fetch(
         "https://hook.us1.make.com/1wsap6a9eiocgulf7rlij660a8ah1kis",
         {
@@ -116,7 +130,7 @@ export default function SectionForm() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify(dataToSend),
         }
       );
 
@@ -145,18 +159,13 @@ export default function SectionForm() {
           phone: formData.phone,
         });
 
+        window.history.pushState({}, '', '/gracias');
 
- 
-window.history.pushState({}, '', '/gracias');
-
-window.dataLayer.push({
-  event: 'page_view',
-  page_path: '/gracias',
-  page_title: 'Thank You - Form Submitted',
-});
-
-
-        
+        window.dataLayer.push({
+          event: 'page_view',
+          page_path: '/gracias',
+          page_title: 'Thank You - Form Submitted',
+        });
       } else {
         setSubmitStatus("error");
       }
