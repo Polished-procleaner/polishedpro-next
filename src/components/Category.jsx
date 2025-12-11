@@ -1,96 +1,114 @@
-import Image from "next/image"
+import Image from "next/image";
+import Container from "./design/Container";
 export default function Category() {
   return (
-    <div className="bg-gray-50">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-        <div className="sm:flex sm:items-baseline sm:justify-between">
-          <h2 className="text-3xl font-bold tracking-tight text-sky-500">Explore Our Categories</h2>
-          <a href="/services" className="hidden text-sm font-semibold text-green-600 hover:text-green-800 sm:block">
-            Browse all categories
-            <span aria-hidden="true"> &rarr;</span>
-          </a>
-        </div>
-        
+    <Container
+      classNameParent={"bg-gray-100"}
+      className={"py-16 sm:py-24 flex flex-col gap-10"}
+    >
+      <div className="sm:flex sm:items-baseline sm:justify-between">
+        <h2 className="text-3xl font-bold tracking-tight text-sky-500">
+          Explore Our Categories
+        </h2>
+        <a
+          href="/services"
+          className="hidden text-sm font-semibold text-green-600 hover:text-green-800 sm:block"
+        >
+          Browse all categories
+          <span aria-hidden="true"> &rarr;</span>
+        </a>
+      </div>
 
-        <div className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-6 lg:gap-8">
-          <div className="group relative aspect-2/1 overflow-hidden rounded-lg sm:row-span-2 sm:aspect-square">
-            <Image
-              alt="Two models wearing women's black cotton crewneck tee and off-white cotton crewneck tee."
-              src="/images/BA/catego1.png"
-              className="absolute size-full object-cover group-hover:opacity-75"
-               width={800}
-              height={500}
-            />
-            <div aria-hidden="true" className="absolute inset-0 bg-linear-to-b from-transparent to-black opacity-50" />
-            <div className="absolute inset-0 flex items-end p-6">
-              <div>
-                <h3 className="font-semibold text-white">
-                  <a href="/services">
-                    <span className="absolute inset-0" />
-                    Residential Cleaning
-                  </a>
-                </h3>
-                <p aria-hidden="true" className="mt-1 text-sm text-white">
-                  See more
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="group relative aspect-2/1 overflow-hidden rounded-lg sm:aspect-auto">
-            <Image
-              alt="Wooden shelf with gray and olive drab green baseball caps, next to wooden clothes hanger with sweaters."
-              src="/images/BA/catego2.jpg"
-              className="absolute size-full object-cover group-hover:opacity-75"
-               width={800}
-              height={500}
-            />
-            <div aria-hidden="true" className="absolute inset-0 bg-linear-to-b from-transparent to-black opacity-50" />
-            <div className="absolute inset-0 flex items-end p-6">
-              <div>
-                <h3 className="font-semibold text-white">
-                  <a href="/services">
-                    <span className="absolute inset-0" />
-                    Commercial Cleaning
-                  </a>
-                </h3>
-                <p aria-hidden="true" className="mt-1 text-sm text-white">
-                  See more
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="group relative aspect-2/1 overflow-hidden rounded-lg sm:aspect-auto">
-            <Image
-              alt="Walnut desk organizer set with white modular trays, next to porcelain mug on wooden desk."
-              src="/images/BA/catego3.jpg"
-              className="absolute size-full object-cover group-hover:opacity-75"
-              width={800}
-              height={500}
-            />
-            <div aria-hidden="true" className="absolute inset-0 bg-linear-to-b from-transparent to-black opacity-50" />
-            <div className="absolute inset-0 flex items-end p-6">
-              <div>
-                <h3 className="font-semibold text-white">
-                  <a href="/services">
-                    <span className="absolute inset-0" />
-                    Specialized Floor Cleaning Services
-                  </a>
-                </h3>
-                <p aria-hidden="true" className="mt-1 text-sm text-white">
-                  See more
-                </p>
-              </div>
+      <div className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-6 lg:gap-8">
+        <div className="group relative aspect-2/1 overflow-hidden rounded-lg sm:row-span-2 sm:aspect-square">
+          <Image
+            alt="Two models wearing women's black cotton crewneck tee and off-white cotton crewneck tee."
+            src="/images/BA/catego1.png"
+            className="absolute size-full object-cover group-hover:opacity-75"
+            width={800}
+            height={500}
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-linear-to-b from-transparent to-black opacity-50"
+          />
+          <div className="absolute inset-0 flex items-end p-6">
+            <div>
+              <h3 className="font-semibold text-white">
+                <a href="/services">
+                  <span className="absolute inset-0" />
+                  Residential Cleaning
+                </a>
+              </h3>
+              <p aria-hidden="true" className="mt-1 text-sm text-white">
+                See more
+              </p>
             </div>
           </div>
         </div>
-
-        <div className="mt-6 sm:hidden">
-          <a href="/services" className="block text-sm font-semibold text-indigo-600 hover:text-indigo-500">
-            Browse all categories
-            <span aria-hidden="true"> &rarr;</span>
-          </a>
+        <div className="group relative aspect-2/1 overflow-hidden rounded-lg sm:aspect-auto">
+          <Image
+            alt="Wooden shelf with gray and olive drab green baseball caps, next to wooden clothes hanger with sweaters."
+            src="/images/BA/catego2.jpg"
+            className="absolute size-full object-cover group-hover:opacity-75"
+            width={800}
+            height={500}
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-linear-to-b from-transparent to-black opacity-50"
+          />
+          <div className="absolute inset-0 flex items-end p-6">
+            <div>
+              <h3 className="font-semibold text-white">
+                <a href="/services">
+                  <span className="absolute inset-0" />
+                  Commercial Cleaning
+                </a>
+              </h3>
+              <p aria-hidden="true" className="mt-1 text-sm text-white">
+                See more
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="group relative aspect-2/1 overflow-hidden rounded-lg sm:aspect-auto">
+          <Image
+            alt="Walnut desk organizer set with white modular trays, next to porcelain mug on wooden desk."
+            src="/images/BA/catego3.jpg"
+            className="absolute size-full object-cover group-hover:opacity-75"
+            width={800}
+            height={500}
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-linear-to-b from-transparent to-black opacity-50"
+          />
+          <div className="absolute inset-0 flex items-end p-6">
+            <div>
+              <h3 className="font-semibold text-white">
+                <a href="/services">
+                  <span className="absolute inset-0" />
+                  Specialized Floor Cleaning Services
+                </a>
+              </h3>
+              <p aria-hidden="true" className="mt-1 text-sm text-white">
+                See more
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  )
+
+      <div className="mt-6 sm:hidden">
+        <a
+          href="/services"
+          className="block text-sm font-semibold text-indigo-600 hover:text-indigo-500"
+        >
+          Browse all categories
+          <span aria-hidden="true"> &rarr;</span>
+        </a>
+      </div>
+    </Container>
+  );
 }

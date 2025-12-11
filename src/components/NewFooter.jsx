@@ -1,40 +1,36 @@
-import Image from 'next/image'
+import Image from "next/image";
+import Container from "./design/Container";
 
 const navigation = {
   solutions: [
-    { name: 'Standard Cleaning', href: '/services' },
-    { name: 'Deep Cleaning', href: '/services' },
-    { name: 'Move-In/Move-Out', href: '/services' },
-    { name: 'Airbnb Cleaning', href: '/services' },
-  
+    { name: "Standard Cleaning", href: "/services" },
+    { name: "Deep Cleaning", href: "/services" },
+    { name: "Move-In/Move-Out", href: "/services" },
+    { name: "Airbnb Cleaning", href: "/services" },
   ],
   support: [
-    { name: 'Office Cleaning', href: '/services' },
-    { name: 'Warehouse Cleaning', href: '/services' },
-    { name: 'Retail Spaces', href: '/services' },
-    { name: 'Medical Facilities', href: '/services' }
+    { name: "Office Cleaning", href: "/services" },
+    { name: "Warehouse Cleaning", href: "/services" },
+    { name: "Retail Spaces", href: "/services" },
+    { name: "Medical Facilities", href: "/services" },
   ],
   company: [
-        { name: '24/7 support', href: '#' },
-    { name: '(954) 909-6519', href: '#' },
-     { name: 'Flexible scheduling', href: '#' },
-         { name: 'Free estimates available', href: '#' },
-    { name: 'info@polishedprocleaners.net', href: '#' },
-
-   
-
+    { name: "24/7 support", href: "#" },
+    { name: "(954) 909-6519", href: "#" },
+    { name: "Flexible scheduling", href: "#" },
+    { name: "Free estimates available", href: "#" },
+    { name: "info@polishedprocleaners.net", href: "#" },
   ],
   legal: [
-        { name: 'License', href: '#' },
-    { name: 'Terms of service', href: '#' },
-    { name: 'Privacy policy', href: '#' },
-
+    { name: "License", href: "#" },
+    { name: "Terms of service", href: "#" },
+    { name: "Privacy policy", href: "#" },
   ],
   social: [
     {
-      name: 'Facebook',
-      href: 'https://www.facebook.com/polishedprocleaners',
-     
+      name: "Facebook",
+      href: "https://www.facebook.com/polishedprocleaners",
+
       icon: (props) => (
         <svg fill="currentColor " viewBox="0 0 24 24" {...props}>
           <path
@@ -46,8 +42,8 @@ const navigation = {
       ),
     },
     {
-      name: 'Instagram',
-      href: 'https://www.instagram.com/polishedpro.cleaners',
+      name: "Instagram",
+      href: "https://www.instagram.com/polishedpro.cleaners",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -58,51 +54,52 @@ const navigation = {
         </svg>
       ),
     },
-   {
-      name: 'TikTok',
-      href: 'https://www.tiktok.com/@polishedprocleaners',
+    {
+      name: "TikTok",
+      href: "https://www.tiktok.com/@polishedprocleaners",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
         </svg>
       ),
     },
-   {
-      name: 'Mensajes',
-      href: 'sms:+19549096519',
+    {
+      name: "Mensajes",
+      href: "sms:+19549096519",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3 .97 4.29L2 22l5.71-.97C9 21.64 10.46 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.38 0-2.68-.29-3.86-.81l-.28-.13-2.82.48.48-2.82-.13-.28C4.89 14.68 4.6 13.38 4.6 12c0-4.08 3.32-7.4 7.4-7.4s7.4 3.32 7.4 7.4-3.32 7.4-7.4 7.4z" />
         </svg>
       ),
     },
-   
   ],
-}
+};
 
 export default function Example() {
   return (
     <footer className="bg-white">
-       
-      <div className="mx-auto max-w-7xl px-6 pt-16 pb-8 sm:pt-24 lg:px-8 lg:pt-2">
-       <div className="mb-9 border-t border-gray-900/10 pt-8 sm:mb-12 lg:mb-17">
-          
-           </div>
+      <Container className="pt-16 pb-8 sm:pt-24 lg:pt-2">
+        <div className="mb-9 border-t border-gray-900/10 pt-8 sm:mb-12 lg:mb-17"></div>
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
-            <img
-                                            src="/images/img1.png"
-                                            alt="PolishedPro Cleaners"
-                                            width={50}
-                                            height={50}
-                                            className="h-[100px] w-auto"
-                                        />
+            <Image
+              src="/images/logo.png"
+              alt="PolishedPro Cleaners"
+              width={50}
+              height={50}
+              className="h-[100px] w-auto"
+              unoptimized
+            />
             <p className="text-sm/6 text-balance text-gray-600">
-              "Leave the Cleaning to Us"
+              &quot;Leave the Cleaning to Us&quot;
             </p>
             <div className="flex gap-x-6">
               {navigation.social.map((item) => (
-                <a key={item.name} href={item.href} className="text-sky-500 hover:text-sky-600">
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-sky-500 hover:text-sky-600"
+                >
                   <span className="sr-only">{item.name}</span>
                   <item.icon aria-hidden="true" className="size-6" />
                 </a>
@@ -112,11 +109,16 @@ export default function Example() {
           <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm/6 font-semibold text-sky-500">Residential Services</h3>
+                <h3 className="text-sm/6 font-semibold text-sky-500">
+                  Residential Services
+                </h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.solutions.map((item) => (
                     <li key={item.name}>
-                      <a href={item.href} className="text-sm/6 text-gray-600 hover:text-gray-900">
+                      <a
+                        href={item.href}
+                        className="text-sm/6 text-gray-600 hover:text-gray-900"
+                      >
                         {item.name}
                       </a>
                     </li>
@@ -124,11 +126,16 @@ export default function Example() {
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
-                <h3 className="text-sm/6 font-semibold text-sky-500">Commercial Services</h3>
+                <h3 className="text-sm/6 font-semibold text-sky-500">
+                  Commercial Services
+                </h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.support.map((item) => (
                     <li key={item.name}>
-                      <a href={item.href} className="text-sm/6 text-gray-600 hover:text-gray-900">
+                      <a
+                        href={item.href}
+                        className="text-sm/6 text-gray-600 hover:text-gray-900"
+                      >
                         {item.name}
                       </a>
                     </li>
@@ -138,11 +145,16 @@ export default function Example() {
             </div>
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm/6 font-semibold text-sky-500">Contact Us</h3>
+                <h3 className="text-sm/6 font-semibold text-sky-500">
+                  Contact Us
+                </h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.company.map((item) => (
                     <li key={item.name}>
-                      <a href={item.href} className="text-sm/6 text-gray-600 hover:text-gray-900">
+                      <a
+                        href={item.href}
+                        className="text-sm/6 text-gray-600 hover:text-gray-900"
+                      >
                         {item.name}
                       </a>
                     </li>
@@ -154,7 +166,10 @@ export default function Example() {
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.legal.map((item) => (
                     <li key={item.name}>
-                      <a href={item.href} className="text-sm/6 text-gray-600 hover:text-gray-900">
+                      <a
+                        href={item.href}
+                        className="text-sm/6 text-gray-600 hover:text-gray-900"
+                      >
                         {item.name}
                       </a>
                     </li>
@@ -165,9 +180,12 @@ export default function Example() {
           </div>
         </div>
         <div className="mt-9 border-t border-gray-900/10 pt-8 sm:mt-12 lg:mt-17">
-          <p className="text-sm/6 text-gray-600">PolishedPro Cleaners. All rights reserved. | Leave the Cleaning to Us.</p>
+          <p className="text-sm/6 text-gray-600">
+            PolishedPro Cleaners. All rights reserved. | Leave the Cleaning to
+            Us.
+          </p>
         </div>
-      </div>
+      </Container>
     </footer>
-  )
+  );
 }
