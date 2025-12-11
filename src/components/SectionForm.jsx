@@ -1,5 +1,4 @@
 import { trackEvent } from "@/lib/facebookPixel";
-import { Content } from "next/font/google";
 import { useState } from "react";
 import {
   FaPhone,
@@ -111,16 +110,16 @@ export default function SectionForm() {
     try {
       // Crear la fecha en formato legible
       const now = new Date();
-      const date = now.toLocaleDateString('es-ES', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
+      const date = now.toLocaleDateString("es-ES", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
       });
-      
+
       // Agregar la fecha al payload
       const dataToSend = {
         ...formData,
-        date: date
+        date: date,
       };
 
       const response = await fetch(
@@ -159,12 +158,12 @@ export default function SectionForm() {
           phone: formData.phone,
         });
 
-        window.history.pushState({}, '', '/gracias');
+        window.history.pushState({}, "", "/gracias");
 
         window.dataLayer.push({
-          event: 'page_view',
-          page_path: '/gracias',
-          page_title: 'Thank You - Form Submitted',
+          event: "page_view",
+          page_path: "/gracias",
+          page_title: "Thank You - Form Submitted",
         });
       } else {
         setSubmitStatus("error");
@@ -184,7 +183,7 @@ export default function SectionForm() {
           <div className="pointer-events-none absolute -top-20 -right-16 h-64 w-64 rounded-full bg-white/10 blur-2xl" />
 
           <h3 className="text-2xl md:text-3xl font-bold">
-            Let's Start the Conversation
+            Let&apos;s Start the Conversation
           </h3>
           <p className="mt-4 leading-relaxed opacity-90">
             Ready to see what professional cleaning can do for your space?
@@ -222,7 +221,7 @@ export default function SectionForm() {
 
           {submitStatus === "success" && (
             <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-xl">
-              Message sent successfully! We'll contact you soon.
+              Message sent successfully! We&apos;ll contact you soon.
             </div>
           )}
 
