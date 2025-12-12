@@ -271,7 +271,7 @@ function WhyChooseUs() {
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="overflow-hidden">
       {/* Hero Section */}
       <section className="relative flex items-center min-h-[calc(100vh-120px)] overflow-hidden ">
         <div className="absolute inset-0 bg-[url('/images/home.jpg')] bg-cover bg-center z-0" />
@@ -440,7 +440,7 @@ export default function HomePage() {
       {/* Testimonials Section */}
       <TestimonialsSection />
       {/* Form */}
-      <Container className={"py-16 sm:py-24 flex flex-col gap-16"}>
+      <Container className={"py-16 sm:py-24 flex flex-col gap-16 "}>
         <motion.div
           initial="hidden"
           whileInView="visible"

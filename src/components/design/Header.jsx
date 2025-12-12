@@ -92,7 +92,7 @@ const Header = () => {
       <Container className={"flex items-center gap-10"}>
         <Link
           href="/"
-          className="flex items-center gap-2 transition-transform hover:scale-105 w-auto h-16"
+          className="flex items-center gap-2 transition-transform hover:scale-105 w-auto h-12 sm:h-16"
         >
           <Image
             width={100}

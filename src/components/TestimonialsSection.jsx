@@ -135,7 +135,7 @@ function classNames(...classes) {
 export default function TestimonialsSection() {
   return (
     <Container
-      classNameParent={"relative isolate"}
+      classNameParent={"relative isolate "}
       className={"py-16 sm:py-24 flex flex-col gap-16"}
     >
       <motion.div
