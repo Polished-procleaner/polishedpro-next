@@ -13,7 +13,7 @@ export default function AboutSection() {
   return (
     <Container
       classNameParent={"relative isolate"}
-      className={"py-16 sm:py-24 flex flex-col gap-10"}
+      className={"py-16 sm:py-24 flex flex-col gap-16"}
     >
       <motion.div
         initial="hidden"

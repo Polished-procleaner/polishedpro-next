@@ -42,7 +42,8 @@ export default function Stats() {
         <motion.div
           key={i}
           variants={stepVariant}
-          className="rounded-2xl bg-gray-100 p-8 relative hover:-translate-y-1 hover:transition-transform hover:duration-200 shadow-sm"
+          //className="rounded-2xl bg-gray-100 p-8 relative hover:-translate-y-1 hover:transition-transform hover:duration-200 shadow-sm"
+          className="rounded-2xl bg-gray-100 p-8 relative shadow-sm"
         >
           <div className="flex items-center gap-2 mb-10">
             <div className="px-5 py-2 rounded-full bg-white text-sm font-medium text-gray-900">

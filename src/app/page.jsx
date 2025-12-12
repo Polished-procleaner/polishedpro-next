@@ -36,20 +36,33 @@
 
 "use client";
 
-import Container from "@/components/design/Container";
-import { Button } from "@/components/ui/button";
-import { CalendarCheck } from "lucide-react";
+// Icons
 import { FaPlay } from "react-icons/fa";
-import { motion } from "motion/react";
+import { CalendarCheck } from "lucide-react";
+import { FaUsers, FaStar, FaHandshake, FaRocket } from "react-icons/fa";
+
+// Animation Variants
 import {
   containerVariant,
   fadeInUpVariant,
+  stepVariant,
 } from "@/constants/animationVariants";
-import AboutSection from "@/components/AboutSection";
-import BadgeTitle from "@/components/design/BadgeTitle";
+import { motion } from "motion/react";
+
+// Constants
 import { services } from "@/constants";
+
+// Components
 import Image from "next/image";
+import Blog from "@/components/Blog";
+import Card from "@/components/Card";
+import { Button } from "@/components/ui/button";
+import SectionForm from "@/components/SectionForm";
+import AboutSection from "@/components/AboutSection";
+import Container from "@/components/design/Container";
 import WorksCarousel from "@/components/WorksCarousel";
+import BadgeTitle from "@/components/design/BadgeTitle";
+import TestimonialsSection from "@/components/TestimonialsSection";
 
 //   return (
 //     <main>
@@ -157,6 +170,102 @@ function ServiceCard({ item }) {
         </div>
       </div>
     </motion.div>
+  );
+}
+
+function WhyChooseUs() {
+  const items = [
+    {
+      title: "Family-Owned Business",
+      description:
+        "We're not a big corporation - we're your neighbors who take personal pride in every cleaning job we complete.",
+      icon: <FaUsers className="size-6" />,
+    },
+    {
+      title: "Premium 5-Star Care",
+      description:
+        "Our consistently high ratings reflect our commitment to exceeding expectations on every single job.",
+      icon: <FaStar className="size-6" />,
+    },
+    {
+      title: "Personal Relationships",
+      description:
+        "We believe in building lasting relationships with our clients based on trust, reliability, and exceptional service.",
+      icon: <FaHandshake className="size-6" />,
+    },
+    {
+      title: "Quick Response",
+      description:
+        "Need cleaning on short notice? We're known for our flexibility and ability to accommodate urgent requests.",
+      icon: <FaRocket className="size-6" />,
+    },
+  ];
+
+  return (
+    <Container
+      classNameParent={"bg-gray-100 relative isolate overflow-hidden"}
+      className={"py-16 sm:py-24 flex flex-col gap-16"}
+    >
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+        variants={stepVariant}
+        className="flex items-center justify-between gap-6"
+      >
+        <div className="flex flex-col gap-2">
+          <BadgeTitle>Trust & Quality</BadgeTitle>
+          <h2 className="h2 text-gray-900">Why Customers Choose Us</h2>
+        </div>
+        <p className=" text-gray-500 max-w-xl text-pretty italic leading-relaxed drop-shadow-lg">
+          We are a team of passionate professionals dedicated to delivering
+          exceptional cleaning services. Our commitment to quality and customer
+          satisfaction is unwavering.
+        </p>
+      </motion.div>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+        variants={containerVariant}
+        className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
+      >
+        {items.map((item, i) => (
+          <motion.div
+            key={i}
+            variants={stepVariant}
+            className="rounded-2xl bg-white p-8 relative shadow-sm flex flex-col gap-6 overflow-hidden"
+          >
+            <span
+              className="absolute left-0 top-0 h-1 w-full origin-center bg-gradient-to-r from-sky-500 to-green-500
+                            transition-transform duration-300 scale-x-100 "
+            />
+            <div className="size-12 rounded-full bg-linear-to-br from-sky-500 to-green-500 text-white flex items-center justify-center">
+              {item.icon}
+            </div>
+            <div className="flex flex-col gap-2">
+              <h3 className="text-xl font-semibold text-gray-900 drop-shadow-lg">
+                {item.title}
+              </h3>
+              <div className="text-sm text-gray-500">{item.description}</div>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+      {/* Decoración */}
+      <div
+        aria-hidden="true"
+        className="absolute -top-24 right-0 -z-10 transform-gpu blur-3xl"
+      >
+        <div
+          style={{
+            clipPath:
+              "polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)",
+          }}
+          className="aspect-1404/767 w-351 bg-linear-to-r from-gray-400/90 to-gray-400/50 opacity-50"
+        />
+      </div>
+    </Container>
   );
 }
 
@@ -326,6 +435,36 @@ export default function HomePage() {
           />
         </div>
       </Container>
+      {/* Why Choose Us Section */}
+      <WhyChooseUs />
+      {/* Testimonials Section */}
+      <TestimonialsSection />
+      {/* Form */}
+      <Container className={"py-16 sm:py-24 flex flex-col gap-16"}>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+          variants={fadeInUpVariant}
+          className="flex flex-col gap-2"
+        >
+          <BadgeTitle>Contact Us</BadgeTitle>
+          <h2 className="h2 text-gray-900">Get in touch with us</h2>
+          <p className="text-gray-500 max-w-2xl">
+            Ready to see what professional cleaning can do for your space?
+            Let&apos;s start the conversation.
+          </p>
+        </motion.div>
+        <SectionForm />
+      </Container>
+      {/* Card */}
+      <Card
+        buttonText={"Start Your Transformation"}
+        //ButtonIcon={FaHeart}
+        buttonLink={"/contact"}
+      />
+      {/* Blog */}
+      <Blog />
     </main>
   );
 }

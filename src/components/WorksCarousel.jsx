@@ -11,6 +11,7 @@ export default function WorksCarousel() {
   return (
     <Carousel
       opts={{
+        align: "center",
         loop: true,
         watchDrag: false, // evita que inicie el drag
       }}
@@ -19,21 +20,20 @@ export default function WorksCarousel() {
           delay: 5000,
         }),
       ]} */
-      className="w-full"
     >
-      <CarouselContent>
-        {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/3 ">
-            <div className="rounded-xl aspect-square">
+      <CarouselContent className="-ml-1">
+        {Array.from({ length: 6 }).map((_, index) => (
+          <CarouselItem
+            key={index}
+            className="md:basis-1/3 lg:basis-1/3 bg-transparent"
+          >
+            <div className="rounded-2xl aspect-square">
               <ImageRevealSlider
                 afterImage={`/images/works/after/${index + 1}.png`}
                 beforeImage={`/images/works/before/${index + 1}.png`}
                 width={600}
                 height={400}
               />
-              {/* <div className="flex aspect-square items-center justify-center p-6">
-                
-              </div> */}
             </div>
           </CarouselItem>
         ))}

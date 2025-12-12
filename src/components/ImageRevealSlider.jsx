@@ -59,7 +59,7 @@ export default function ImageRevealSlider({
   return (
     <div
       ref={containerRef}
-      className={`relative size-full overflow-hidden rounded-lg shadow-2xl select-none ${
+      className={`relative size-full overflow-hidden rounded-2xl select-none ${
         isDragging ? "cursor-grabbing" : "cursor-grab"
       }`}
       onMouseMove={handleMouseMove}
