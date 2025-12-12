@@ -20,9 +20,9 @@ import { HiOutlineChatBubbleLeftRight } from "react-icons/hi2";
 const NAV = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
-  { href: "/before-after", label: "Before & After" },
+  { href: "/#works", label: "Before & After" },
   { href: "/process", label: "Process" },
-  { href: "/testimonials", label: "Reviews" },
+  { href: "/#testimonials", label: "Reviews" },
   { href: "/contact", label: "Contact us" },
 ];
 
