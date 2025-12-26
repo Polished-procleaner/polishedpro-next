@@ -68,7 +68,7 @@ export default function Footer() {
                 <FaTiktok size={14} />
               </a>
               <a
-                href="sms:+19549096519"
+                href="sms:+18882626068"
                 aria-label="Text us"
                 className="w-9 h-9 rounded-lg flex items-center justify-center
                            text-white bg-gradient-to-r from-sky-500 to-green-500
@@ -139,7 +139,7 @@ export default function Footer() {
             <h3 className="text-[18px] font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-2 text-white/90">
               <li>
-                <a href="tel:+19549096519" className="hover:text-white">
+                <a href="tel:+18882626068" className="hover:text-white">
                   (888) 262-6068
                 </a>
               </li>

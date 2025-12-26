@@ -16,7 +16,7 @@ const navigation = {
   ],
   company: [
     { name: "24/7 support", href: "#" },
-    { name: "(888) 262-6068", href: "#" },
+    { name: "(888) 262-6068", href: "tel:+18882626068" },
     { name: "Flexible scheduling", href: "#" },
     { name: "Free estimates available", href: "#" },
     { name: "info@polishedprocleaners.net", href: "#" },
@@ -65,7 +65,7 @@ const navigation = {
     },
     {
       name: "Mensajes",
-      href: "sms:+19549096519",
+      href: "sms:+18882626068",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3 .97 4.29L2 22l5.71-.97C9 21.64 10.46 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.38 0-2.68-.29-3.86-.81l-.28-.13-2.82.48.48-2.82-.13-.28C4.89 14.68 4.6 13.38 4.6 12c0-4.08 3.32-7.4 7.4-7.4s7.4 3.32 7.4 7.4-3.32 7.4-7.4 7.4z" />

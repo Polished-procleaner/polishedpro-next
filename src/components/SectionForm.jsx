@@ -17,7 +17,7 @@ const contactItems = [
     icon: FaPhone,
     title: "Give Us a Call",
     text: "Click to call us directly",
-    href: "tel:+19549096519",
+    href: "tel:+18882626068",
   },
   {
     id: "email",
@@ -38,7 +38,7 @@ const contactItems = [
     icon: FaComment,
     title: "Text Us",
     text: "Click to send us a text message",
-    href: "sms:+19549096519",
+    href: "sms:+18882626068",
   },
 ];
 
