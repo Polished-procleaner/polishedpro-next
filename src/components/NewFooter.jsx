@@ -16,7 +16,7 @@ const navigation = {
   ],
   company: [
     { name: "24/7 support", href: "#" },
-    { name: "(954) 909-6519", href: "#" },
+    { name: "(888) 262-6068", href: "#" },
     { name: "Flexible scheduling", href: "#" },
     { name: "Free estimates available", href: "#" },
     { name: "info@polishedprocleaners.net", href: "#" },

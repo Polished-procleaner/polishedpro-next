@@ -140,7 +140,7 @@ export default function Footer() {
             <ul className="space-y-2 text-white/90">
               <li>
                 <a href="tel:+19549096519" className="hover:text-white">
-                  (954) 909-6519
+                  (888) 262-6068
                 </a>
               </li>
               <li>info@polishedprocleaners.net</li>
