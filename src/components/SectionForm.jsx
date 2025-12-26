@@ -15,7 +15,7 @@ const contactItems = [
     icon: FaPhone,
     title: "Give Us a Call",
     text: "Click to call us directly",
-    href: "tel:+19549096519",
+    href: "tel:+18882626068",
   },
   {
     id: "email",
@@ -36,7 +36,7 @@ const contactItems = [
     icon: FaComment,
     title: "Text Us",
     text: "Click to send us a text message",
-    href: "sms:+19549096519",
+    href: "sms:+18882626068",
   },
 ];
 
@@ -111,16 +111,16 @@ export default function SectionForm() {
     try {
       // Crear la fecha en formato legible
       const now = new Date();
-      const date = now.toLocaleDateString('es-ES', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
+      const date = now.toLocaleDateString("es-ES", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
       });
-      
+
       // Agregar la fecha al payload
       const dataToSend = {
         ...formData,
-        date: date
+        date: date,
       };
 
       const response = await fetch(
@@ -159,12 +159,12 @@ export default function SectionForm() {
           phone: formData.phone,
         });
 
-        window.history.pushState({}, '', '/gracias');
+        window.history.pushState({}, "", "/gracias");
 
         window.dataLayer.push({
-          event: 'page_view',
-          page_path: '/gracias',
-          page_title: 'Thank You - Form Submitted',
+          event: "page_view",
+          page_path: "/gracias",
+          page_title: "Thank You - Form Submitted",
         });
       } else {
         setSubmitStatus("error");
