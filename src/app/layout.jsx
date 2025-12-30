@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-dvh flex flex-col bg-[--color-surface] text-[--color-text-primary] pt-20">
+      <body className="app-container bg-[--color-surface] text-[--color-text-primary]">
         <Script id="gtm-script" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -86,8 +86,7 @@ export default function RootLayout({ children }) {
         </noscript>
 
         <Header />
-        <main className="flex-1">{children}</main>
-
+        <main className="main-content">{children}</main>
         <NewFooter />
       </body>
     </html>

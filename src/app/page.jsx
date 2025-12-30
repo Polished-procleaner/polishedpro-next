@@ -1,39 +1,3 @@
-// "use client";
-// import { FaCalendarCheck, FaPlay, FaHeart } from "react-icons/fa";
-// import { FaHome, FaBuilding, FaThLarge, FaAward } from "react-icons/fa";
-// import Carousel from "@/components/Carousel";
-// import SectionForm from "@/components/SectionForm";
-// import Card from "@/components/Card";
-// import Category from "@/components/Category";
-// import Blog from "@/components/Blog";
-// export default function HomePage() {
-//   const slides = [
-//     {
-//       title: "Residential",
-//       subtitle: "Home cleaning experts",
-//       src: "/images/BA/27.png",
-//       Icon: FaHome,
-//     },
-//     {
-//       title: "Commercial",
-//       subtitle: "Office & warehouse",
-//       src: "/images/BA/24.png",
-//       Icon: FaBuilding,
-//     },
-//     {
-//       title: "Specialized",
-//       subtitle: "Floor care specialists",
-//       src: "/images/BA/21.png",
-//       Icon: FaThLarge,
-//     },
-//     {
-//       title: "5-Star Rated",
-//       subtitle: "Customer approved",
-//       src: "/images/BA/6.png",
-//       Icon: FaAward,
-//     },
-//   ];
-
 "use client";
 
 // Icons
@@ -57,88 +21,30 @@ import Image from "next/image";
 import Blog from "@/components/Blog";
 import Card from "@/components/Card";
 import { Button } from "@/components/ui/button";
-import SectionForm from "@/components/SectionForm";
 import AboutSection from "@/components/AboutSection";
 import Container from "@/components/design/Container";
-import WorksCarousel from "@/components/WorksCarousel";
 import BadgeTitle from "@/components/design/BadgeTitle";
-import TestimonialsSection from "@/components/TestimonialsSection";
-
-//   return (
-//     <main>
-//       <section className="relative flex items-center min-h-[calc(100vh-80px)] overflow-hidden bg-gradient-to-br from-sky-700 to-green-200">
-//         <div
-//           aria-hidden
-//           className="pointer-events-none absolute inset-0 opacity-30"
-//           style={{
-//             background:
-//               "url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1000 1000%22%3E%3Cdefs%3E%3Cpattern id=%22g%22 width=%2250%22 height=%2250%22 patternUnits=%22userSpaceOnUse%22%3E%3Cpath d=%22M 50 0 L 0 0 0 50%22 fill=%22none%22 stroke=%22rgba(255,255,255,0.1)%22 stroke-width=%221%22/%3E%3C/pattern%3E%3C/defs%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22url(%23g)%22/%3E%3C/svg%3E')",
-//           }}
-//         />
-
-//         <div className="relative z-10 flex flex-col md:flex-row items-center max-w-[1400px] w-full gap-8 px-8 py-12 text-center md:text-left mx-auto">
-//           <div className="text-white md:w-[40%] flex flex-col justify-center">
-//             <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 text-sm rounded-full backdrop-blur-md bg-white/10 border border-white/20 w-fit mx-auto md:mx-0">
-//               Premium Cleaning Services
-//             </div>
-//             <h1 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
-//               Transform Your Space <br /> with{" "}
-//               <span className="bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent">
-//                 Professional
-//               </span>{" "}
-//               Cleaning
-//             </h1>
-//             <p className="mt-3 text-xl font-light italic opacity-95">
-//               Leave the Cleaning to Us
-//             </p>
-
-//             <div className="flex flex-wrap gap-4 mt-8 items-center justify-center md:justify-start">
-//               <a
-//                 href="/contact"
-//                 className="inline-flex items-center gap-2 px-6 py-3 font-semibold text-white rounded-full shadow-lg transition-transform bg-gradient-to-r from-green-500 to-emerald-500 hover:-translate-y-1"
-//               >
-//                 <FaCalendarCheck />
-//                 Book Now
-//               </a>
-//               <a
-//                 href="/services"
-//                 className="inline-flex items-center gap-2 px-6 py-3 font-semibold text-white border-2 rounded-full backdrop-blur-sm bg-white/10 border-white/20 hover:bg-white/20 hover:-translate-y-1 transition-transform"
-//               >
-//                 <FaPlay />
-//                 Our Services
-//               </a>
-//             </div>
-//           </div>
-
-//           <div className="md:w-[60%] flex items-center justify-center">
-//             <Carousel className="w-full" slides={slides} interval={3000} />
-//           </div>
-//         </div>
-//       </section>
-
-//       <Category />
-//       <Card
-//         buttonText={"Start Your Transformation"}
-//         ButtonIcon={FaHeart}
-//         buttonLink={"/contact"}
-//       ></Card>
-
-//       <SectionForm />
-//       <Blog></Blog>
-//     </main>
-//   );
-// }
+import ContactForm from "@/components/ContactForm";
+import TestimonialsSection from "@/components/design/TestimonialsSection";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 function ServiceCard({ item }) {
   return (
     <motion.div
       variants={fadeInUpVariant}
-      className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl"
+      className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl group"
     >
       <Image
         src={item.imageUrl}
         alt={item.title}
-        className="w-full h-[500px] object-cover"
+        className="w-full h-[500px] object-cover group-hover:scale-110 transition-transform duration-500"
         width={1200}
         height={500}
         unoptimized
@@ -154,10 +60,10 @@ function ServiceCard({ item }) {
             WebkitMaskImage:
               "linear-gradient(to top, black 30%, transparent 100%)",
           }}
-        ></div>
+        />
 
         {/* Overlay con gradiente de color */}
-        <div className="absolute inset-0 -top-20 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+        <div className="absolute inset-0 -top-20 bg-linear-to-t from-black/60 via-black/30 to-transparent" />
 
         {/* Contenido de texto */}
         <div className="relative z-10">
@@ -176,9 +82,9 @@ function ServiceCard({ item }) {
 function WhyChooseUs() {
   const items = [
     {
-      title: "Family-Owned Business",
+      title: "Eco-friendly products",
       description:
-        "We're not a big corporation - we're your neighbors who take personal pride in every cleaning job we complete.",
+        "We use eco-friendly products to ensure that our cleaning services are environmentally responsible.",
       icon: <FaUsers className="size-6" />,
     },
     {
@@ -234,10 +140,12 @@ function WhyChooseUs() {
           <motion.div
             key={i}
             variants={stepVariant}
+            whileHover={{ scale: 1.08 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="rounded-2xl bg-white p-8 relative shadow-sm flex flex-col gap-6 overflow-hidden"
           >
             <span
-              className="absolute left-0 top-0 h-1 w-full origin-center bg-gradient-to-r from-sky-500 to-green-500
+              className="absolute left-0 top-0 h-1 w-full origin-center bg-linear-to-r from-sky-500 to-green-500
                             transition-transform duration-300 scale-x-100 "
             />
             <div className="size-12 rounded-full bg-linear-to-br from-sky-500 to-green-500 text-white flex items-center justify-center">
@@ -269,25 +177,178 @@ function WhyChooseUs() {
   );
 }
 
+function OurWorks() {
+  const images = [
+    "https://static.wixstatic.com/media/02498f_be51d968845248379cba9e1c019a89da~mv2.jpg",
+    "https://static.wixstatic.com/media/02498f_90c6fd391f2f4a28a46a9ce828435f48~mv2.jpg",
+    "https://static.wixstatic.com/media/02498f_4917f176445c487380ad511cd184242e~mv2.jpg",
+    "https://static.wixstatic.com/media/02498f_a5a78a9241ca4c90927645f34441accb~mv2.jpeg",
+    "https://static.wixstatic.com/media/02498f_40aeeccca5aa4c9db4bbd3b570e0a16b~mv2.jpg",
+  ];
+
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={fadeInUpVariant}
+      className=""
+    >
+      {/* <WorksCarousel /> */}
+      {/* {images.map((image, index) => (
+        <div key={index} className="rounded-2xl aspect-3/2">
+          <Image
+            src={image}
+            alt={`image-${index}`}
+            width={600}
+            height={400}
+            className="size-full object-cover rounded-2xl"
+          />
+        </div>
+      ))} */}
+      <Carousel
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+        plugins={[
+          Autoplay({
+            delay: 2000,
+          }),
+        ]}
+        className="w-full"
+      >
+        <CarouselContent className="-ml-4">
+          {images.map((image, index) => (
+            <CarouselItem
+              key={index}
+              className="pl-4 basis-full xs:basis-1/2 lg:basis-1/3 rounded-2xl aspect-3/2"
+            >
+              <Image
+                src={image}
+                alt={`image-${index}`}
+                width={600}
+                height={400}
+                className="size-full object-cover rounded-2xl"
+              />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+
+        <div className="flex justify-center gap-2 mt-8">
+          <CarouselPrevious className="static translate-y-0 translate-x-0" />
+          <CarouselNext className="static translate-y-0 translate-x-0" />
+        </div>
+      </Carousel>
+    </motion.div>
+  );
+}
+
+function Features() {
+  const items = [
+    {
+      image:
+        "https://static.wixstatic.com/media/02498f_be51d968845248379cba9e1c019a89da~mv2.jpg",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+    },
+    {
+      image:
+        "https://static.wixstatic.com/media/02498f_90c6fd391f2f4a28a46a9ce828435f48~mv2.jpg",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+    },
+    {
+      image:
+        "https://static.wixstatic.com/media/02498f_536e1a3ef85c43a68c20b6f19e2f5e60~mv2.jpg",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+    },
+    {
+      image:
+        "https://static.wixstatic.com/media/02498f_ba34ac59451d40ed91ea8ba3d2e50433~mv2.jpg",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+    },
+  ];
+  return (
+    <Container
+      classNameParent={"relative isolate"}
+      className={"py-16 sm:py-24 flex flex-col gap-20"}
+    >
+      {/* Services Grid */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.2 }}
+        variants={containerVariant}
+        className="grid sm:grid-cols-2 lg:grid-cols-4 items-center gap-6"
+      >
+        {items.map((item, index) => (
+          <motion.div
+            key={index}
+            whileHover={{ scale: 1.08 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            //className="rounded-2xl bg-gray-100 p-8 relative shadow-sm"
+          >
+            <Image
+              src={item.image}
+              alt={item.description}
+              width={500}
+              height={500}
+              className="w-full h-48 object-cover rounded-lg mb-4"
+            />
+            <p className="text-gray-600 text-sm text-center">
+              {item.description}
+            </p>
+          </motion.div>
+        ))}
+      </motion.div>
+    </Container>
+  );
+}
+
 export default function HomePage() {
   return (
     <main className="overflow-hidden">
       {/* Hero Section */}
       <section className="relative flex items-center min-h-[calc(100vh-120px)] overflow-hidden ">
-        <div className="absolute inset-0 bg-[url('/images/home.jpg')] bg-cover bg-center z-0" />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/90 to-transparent z-1 from-80% w-[60%]" />
-        <Container classNameParent="z-3 w-full">
+        {/* Con imagen*/}
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-white/90  to-transparent z-1 from-80% w-[60%]" /> */}
+        <div className="absolute inset-0 bg-linear-to-r from-white/90 via-white/90 to-transparent z-1 w-[70%]" />
+        <div className="absolute inset-0 bg-[url('https://static.wixstatic.com/media/02498f_1584ba7b2af84b1bbbd0f68057f8cb07~mv2.jpeg')] bg-cover bg-center z-0" />
+
+        {/* Con video */}
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-transparent z-1 w-[60%]" />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source
+            src="https://video.wixstatic.com/video/02498f_9c782ec8f0ea41dea83eec0a6571979e/1080p/mp4/file.mp4"
+            type="video/mp4"
+          />
+        </video> */}
+        <Container
+          classNameParent="z-3 w-full"
+          className={
+            "flex flex-col md:flex-row items-center justify-between gap-8"
+          }
+        >
           <motion.div
             initial="hidden"
             //animate="visible"
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
             variants={containerVariant}
-            className="flex flex-col gap-6"
+            className="flex flex-col gap-6 w-full"
           >
             <motion.h1 variants={fadeInUpVariant} className="h1 text-gray-900">
               Transform Your Space with{" "}
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-[#0ea5e9]  to-[#22c55e]">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-primary-blue  to-primary-green">
                 Professional Cleaning
               </span>
             </motion.h1>
@@ -314,10 +375,48 @@ export default function HomePage() {
               </Button>
             </motion.div>
           </motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeInUpVariant}
+            className="p-6 flex flex-col gap-6 w-full max-w-lg bg-black/20 backdrop-blur-2xl rounded-2xl shadow-2xl border border-gray-50/30"
+          >
+            <h2 className="text-2xl font-semibold text-white">
+              Get Your Free Quote
+            </h2>
+            <ContactForm />
+          </motion.div>
         </Container>
       </section>
       {/* About Section */}
       <AboutSection />
+      {/* New Section */}
+      <Features />
+      <div className="z-2 relative overflow-hidden ">
+        <motion.div
+          variants={fadeInUpVariant}
+          className="mx-auto max-w-7xl px-6 lg:px-8"
+        >
+          <div className="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10 aspect-video relative overflow-hidden">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source
+                src="https://video.wixstatic.com/video/02498f_b4654a02ad1a46c98a1cebe76d727c93/720p/mp4/file.mp4"
+                type="video/mp4"
+              />
+            </video>
+          </div>
+          <div aria-hidden="true" className="relative">
+            <div className="absolute -inset-x-20 bottom-0 bg-linear-to-t from-white pt-[7%]" />
+          </div>
+        </motion.div>
+      </div>
       {/* Services Section */}
       <Container
         classNameParent={"relative isolate"}
@@ -414,15 +513,7 @@ export default function HomePage() {
             community.
           </motion.p>
         </motion.div>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeInUpVariant}
-          className="flex flex-col gap-2"
-        >
-          <WorksCarousel />
-        </motion.div>
+        <OurWorks />
         <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl"
@@ -440,24 +531,6 @@ export default function HomePage() {
       <WhyChooseUs />
       {/* Testimonials Section */}
       <TestimonialsSection />
-      {/* Form */}
-      <Container className={"py-16 sm:py-24 flex flex-col gap-16 "}>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
-          variants={fadeInUpVariant}
-          className="flex flex-col gap-2"
-        >
-          <BadgeTitle>Contact Us</BadgeTitle>
-          <h2 className="h2 text-gray-900">Get in touch with us</h2>
-          <p className="text-gray-500 max-w-2xl">
-            Ready to see what professional cleaning can do for your space?
-            Let&apos;s start the conversation.
-          </p>
-        </motion.div>
-        <SectionForm />
-      </Container>
       {/* Card */}
       <Card
         buttonText={"Start Your Transformation"}

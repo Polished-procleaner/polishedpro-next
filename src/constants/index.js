@@ -3,7 +3,8 @@ export const services = [
     title: "Residential Cleaning",
     description:
       "Professional home cleaning that keeps every corner spotless, fresh, and welcoming.",
-    imageUrl: "/images/services/1.png",
+    imageUrl:
+      "https://static.wixstatic.com/media/02498f_218b61e6e93e40a6ac41ef75d48c7280~mv2.jpg",
   },
   {
     title: "Commercial Cleaning",
@@ -15,6 +16,7 @@ export const services = [
     title: "Specialized Floor Care",
     description:
       "Professional floor care for all surfaces, restoring shine and extending their life.",
-    imageUrl: "/images/services/3.jpg",
+    imageUrl:
+      "https://static.wixstatic.com/media/02498f_e8945cc18f4c4221b0ed03d652174014~mv2.jpg",
   },
 ];

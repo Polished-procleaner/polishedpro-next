@@ -346,6 +346,14 @@ body {
   @apply text-transparent bg-clip-text bg-linear-to-r from-[#0ea5e9] to-[#22c55e];
 }
 
+@utility app-container {
+  @apply flex flex-col min-h-screen;
+}
+
+@utility main-content {
+  @apply grow;  
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
