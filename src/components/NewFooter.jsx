@@ -19,12 +19,12 @@ const navigation = {
     { name: "(888) 262-6068", href: "tel:+18882626068" },
     { name: "Flexible scheduling", href: "#" },
     { name: "Free estimates available", href: "#" },
-    { name: "info@polishedprocleaners.net", href: "#" },
+    { name: "Email us", href: "mailto:info@polishedprocleaners.net" },
   ],
   legal: [
     { name: "License", href: "#" },
     { name: "Terms of service", href: "#" },
-    { name: "Privacy policy", href: "#" },
+    { name: "Privacy policy", href: "/privacy-policy.pdf" },
   ],
   social: [
     {

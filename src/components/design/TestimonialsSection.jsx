@@ -16,8 +16,10 @@ import {
 } from "../ui/carousel";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import testimonialData from "@/constants/testimonials.json";
+import { useState } from "react";
 
-const Rating = ({ stars }) => {
+const Rating = ({ rating }) => {
   return (
     <div className="flex items-center gap-1">
       {Array.from({ length: 5 }, (_, i) => (
@@ -25,7 +27,7 @@ const Rating = ({ stars }) => {
           key={i}
           className={clsx(
             "size-5 fill-gray-300 text-gray-300",
-            i < stars && "fill-yellow-400 text-yellow-400"
+            i < rating && "fill-yellow-400 text-yellow-400"
           )}
         />
       ))}
@@ -34,73 +36,47 @@ const Rating = ({ stars }) => {
 };
 
 const TestimonialCard = ({ data }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const isLong = data.description.length > 120;
   return (
     <div className="flex flex-col items-start gap-2 bg-gray-50 p-6 rounded-2xl h-full border border-gray-200">
-      <div className="flex items-center justify-between w-full">
-        <h3 className="text-lg font-semibold text-gray-900">{data.name}</h3>
-        <span className="text-xs text-gray-500">{data.date}</span>
+      <div className="flex items-center gap-2 w-full">
+        <Image
+          src={data.image}
+          alt={data.name}
+          width={50}
+          height={50}
+          className="rounded-full shrink-0"
+          unoptimized
+        />
+        <div className="flex flex-col">
+          <h3 className="text-sm font-semibold text-gray-900">{data.name}</h3>
+          <span className="text-xs text-gray-500">{data.date}</span>
+        </div>
       </div>
-      <Rating stars={data.stars} />
-      <p className="text-gray-600 leading-relaxed text-sm flex-1">
-        &quot;{data.description}&quot;
-      </p>
+      <Rating rating={data.rating} />
+      <div className="flex-1">
+        <p className="text-gray-600 leading-relaxed text-sm">
+          &quot;
+          {isLong && !isExpanded
+            ? `${data.description.slice(0, 120)}...`
+            : data.description}
+          &quot;
+        </p>
+        {isLong && (
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-theme text-xs font-semibold mt-1 hover:underline"
+          >
+            {isExpanded ? "Read less" : "Read more"}
+          </button>
+        )}
+      </div>
     </div>
   );
 };
 
 export default function TestimonialsSection() {
-  const testimonials = [
-    {
-      name: "Sarah Jenkins",
-      description:
-        "The team did an incredible job on our windows. They haven't been this clear in years! Very professional and efficient.",
-      stars: 5,
-      date: "2024-03-12",
-    },
-    {
-      name: "Michael Chen",
-      description:
-        "PolishedPro is my go-to for monthly deep cleans. Their attention to detail is unmatched in the neighborhood.",
-      stars: 5,
-      date: "2024-02-28",
-    },
-    {
-      name: "Emily Rodriguez",
-      description:
-        "Great service and very friendly staff. They were able to accommodate my last-minute request for a move-out clean.",
-      stars: 4,
-      date: "2024-02-15",
-    },
-    {
-      name: "David Thompson",
-      description:
-        "Reliable, punctual, and thorough. It's such a relief coming home to a perfectly clean house after a long work week.",
-      stars: 5,
-      date: "2024-01-20",
-    },
-    {
-      name: "Jessica Taylor",
-      description:
-        "I've tried several services, but PolishedPro is by far the best. They actually care about the quality of their work.",
-      stars: 5,
-      date: "2024-01-05",
-    },
-    {
-      name: "Robert Wilson",
-      description:
-        "Excellent communication and fair pricing. They did a fantastic job on our hardwood floors.",
-      stars: 4,
-      date: "2023-12-18",
-    },
-    {
-      name: "Amanda White",
-      description:
-        "The kitchen looks brand new! I don't know how they got those stains out, but I'm beyond impressed.",
-      stars: 5,
-      date: "2023-12-12",
-    },
-  ];
-
   return (
     <Container
       id="testimonials"
@@ -142,11 +118,17 @@ export default function TestimonialsSection() {
                 className="object-contain size-full"
               />
             </div>
-            <Rating stars={4} />
+            <Rating rating={5} />
             <span className="text-gray-500 text-sm">
-              Based on {testimonials.length} reviews
+              Based on {testimonialData.length} reviews
             </span>
-            <Button className="w-full mt-4">Write a review</Button>
+            <a
+              href="https://share.google/waT87hhK46ZxEZRpQ"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="w-full mt-4">Write a review</Button>
+            </a>
           </div>
         </div>
         <Carousel
@@ -157,7 +139,7 @@ export default function TestimonialsSection() {
           className="sm:flex-1 sm:min-w-0"
         >
           <CarouselContent className="-ml-4">
-            {testimonials.map((testimonial, index) => (
+            {testimonialData.map((testimonial, index) => (
               <CarouselItem
                 key={index}
                 className="pl-4 basis-full xs:basis-1/2 lg:basis-1/3 xl:basis-1/4"

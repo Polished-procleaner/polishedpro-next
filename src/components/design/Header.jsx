@@ -16,11 +16,12 @@ import { Button } from "../ui/button";
 
 // Iconos
 import { HiOutlineChatBubbleLeftRight } from "react-icons/hi2";
+import HamburgerMenu from "./HamburgerMenu";
 
 const NAV = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
-  { href: "/#works", label: "Before & After" },
+  { href: "/#works", label: "Our Work" },
   { href: "/process", label: "Process" },
   { href: "/#testimonials", label: "Reviews" },
   { href: "/contact", label: "Contact us" },
@@ -32,7 +33,7 @@ function Underline({ active }) {
     <span
       className={[
         "pointer-events-none absolute -bottom-1 left-0 h-[2px]",
-        "bg-gradient-to-r from-sky-500 to-green-500",
+        "bg-linear-to-r from-sky-500 to-green-500",
         "transition-all duration-300",
         active ? "w-full" : "w-0",
       ].join(" ")}
@@ -92,7 +93,7 @@ const Header = () => {
       <Container className={"flex items-center gap-10"}>
         <Link
           href="/"
-          className="flex items-center gap-2 transition-transform hover:scale-105 w-auto h-12 sm:h-16"
+          className="flex items-center gap-2 transition-transform hover:scale-105 w-auto h-16"
         >
           <Image
             width={100}
@@ -102,7 +103,7 @@ const Header = () => {
             className="size-full object-cover"
           />
         </Link>
-        <ul className="hidden items-center gap-10 md:flex">
+        <ul className="hidden items-center gap-5 lg:gap-10 md:flex">
           {NAV.map(({ href, label }) => {
             const active = isActive(href);
             return (
@@ -119,12 +120,15 @@ const Header = () => {
           })}
         </ul>
         <div className="ml-auto relative inline-block group">
-          <Link href="/contact">
+          <Link href="/contact" className="hidden md:block">
             <Button variant={"theme"} className={"gap-1"}>
               <HiOutlineChatBubbleLeftRight className="size-5" />
               Get Quote
             </Button>
           </Link>
+          <div className="md:hidden">
+            <HamburgerMenu />
+          </div>
         </div>
       </Container>
     </motion.header>

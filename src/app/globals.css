@@ -80,9 +80,7 @@ body {
   font-family: var(--font-sans);
 }
 
-body {
-  @apply pt-20 overflow-x-hidden;
-}
+
 
 .container-pp {
   @apply mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8;
@@ -351,7 +349,7 @@ body {
 }
 
 @utility main-content {
-  @apply grow;  
+  @apply grow pt-20;  
 }
 
 @layer base {

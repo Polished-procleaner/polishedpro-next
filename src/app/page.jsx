@@ -250,25 +250,25 @@ function Features() {
       image:
         "https://static.wixstatic.com/media/02498f_be51d968845248379cba9e1c019a89da~mv2.jpg",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+        "An immaculate living space where sophistication and comfort blend in perfect harmony.",
     },
     {
       image:
         "https://static.wixstatic.com/media/02498f_90c6fd391f2f4a28a46a9ce828435f48~mv2.jpg",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+        "Every detail shines with elegance, creating a modern, polished, and welcoming atmosphere.",
     },
     {
       image:
         "https://static.wixstatic.com/media/02498f_536e1a3ef85c43a68c20b6f19e2f5e60~mv2.jpg",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+        "A refined and luminous space designed to reflect style, care, and distinction.",
     },
     {
       image:
         "https://static.wixstatic.com/media/02498f_ba34ac59451d40ed91ea8ba3d2e50433~mv2.jpg",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+        "High-level cleaning that enhances the natural beauty of your living area and transforms the entire ambiance.",
     },
   ];
   return (
@@ -282,27 +282,54 @@ function Features() {
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
         variants={containerVariant}
-        className="grid sm:grid-cols-2 lg:grid-cols-4 items-center gap-6"
+        className="flex flex-col items-center gap-20"
       >
-        {items.map((item, index) => (
+        <div className="flex flex-col items-center gap-6">
           <motion.div
-            key={index}
-            whileHover={{ scale: 1.08 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            //className="rounded-2xl bg-gray-100 p-8 relative shadow-sm"
+            variants={fadeInUpVariant}
+            className="flex items-center gap-4"
           >
-            <Image
-              src={item.image}
-              alt={item.description}
-              width={500}
-              height={500}
-              className="w-full h-48 object-cover rounded-lg mb-4"
-            />
-            <p className="text-gray-600 text-sm text-center">
-              {item.description}
-            </p>
+            <BadgeTitle>Premium Cleaning Services</BadgeTitle>
           </motion.div>
-        ))}
+          <motion.h2
+            variants={fadeInUpVariant}
+            className="h2 text-gray-900 text-center max-w-xl"
+          >
+            Designed for Those Who{" "}
+            <span className="text-theme">Expect the Best</span>
+          </motion.h2>
+          <motion.p
+            variants={fadeInUpVariant}
+            className="text-gray-500 max-w-3xl text-center"
+          >
+            Experience a new level of refined cleaning crafted for the most
+            demanding standards. Every detail is handled with precision, care,
+            and elegance—delivering a flawless environment that reflects quality
+            in every corner.
+          </motion.p>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {items.map((item, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.08 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              variants={fadeInUpVariant}
+              className="flex flex-col gap-4"
+            >
+              <Image
+                src={item.image}
+                alt={item.description}
+                width={500}
+                height={500}
+                className="w-full h-48 object-cover rounded-lg"
+              />
+              <p className="text-gray-600 text-sm text-center">
+                {item.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </motion.div>
     </Container>
   );
@@ -312,30 +339,15 @@ export default function HomePage() {
   return (
     <main className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative flex items-center min-h-[calc(100vh-120px)] overflow-hidden ">
+      <section className="relative flex items-center min-h-[calc(100vh-120px)] overflow-hidden">
         {/* Con imagen*/}
         {/* <div className="absolute inset-0 bg-gradient-to-r from-white/90  to-transparent z-1 from-80% w-[60%]" /> */}
-        <div className="absolute inset-0 bg-linear-to-r from-white/90 via-white/90 to-transparent z-1 w-[70%]" />
+        <div className="absolute inset-0 bg-linear-to-r from-white/90 via-white/90 to-white/60 md:to-transparent z-1 w-full md:w-[70%]" />
         <div className="absolute inset-0 bg-[url('https://static.wixstatic.com/media/02498f_1584ba7b2af84b1bbbd0f68057f8cb07~mv2.jpeg')] bg-cover bg-center z-0" />
-
-        {/* Con video */}
-        {/* <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-transparent z-1 w-[60%]" />
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source
-            src="https://video.wixstatic.com/video/02498f_9c782ec8f0ea41dea83eec0a6571979e/1080p/mp4/file.mp4"
-            type="video/mp4"
-          />
-        </video> */}
         <Container
           classNameParent="z-3 w-full"
           className={
-            "flex flex-col md:flex-row items-center justify-between gap-8"
+            "flex flex-col md:flex-row items-center justify-between gap-8 py-16 md:py-0"
           }
         >
           <motion.div
@@ -356,10 +368,9 @@ export default function HomePage() {
               variants={fadeInUpVariant}
               className="text-gray-500 max-w-2xl italic"
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat
+              Experience professional cleaning designed to elevate the quality
+              of your space. We focus on perfection, care, and hygiene, ensuring
+              visible results from the very first moment.
             </motion.p>
             <motion.div
               variants={fadeInUpVariant}
