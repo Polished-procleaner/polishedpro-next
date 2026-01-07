@@ -18,7 +18,7 @@ import { services } from "@/constants";
 
 // Components
 import Image from "next/image";
-import Blog from "@/components/Blog";
+import _Blog from "@/components/Blog";
 import Card from "@/components/Card";
 import { Button } from "@/components/ui/button";
 import AboutSection from "@/components/AboutSection";
