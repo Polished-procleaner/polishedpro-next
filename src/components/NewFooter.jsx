@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Container from "./design/Container";
 
 const navigation = {
   solutions: [
@@ -18,12 +19,12 @@ const navigation = {
     { name: "(888) 262-6068", href: "tel:+18882626068" },
     { name: "Flexible scheduling", href: "#" },
     { name: "Free estimates available", href: "#" },
-    { name: "info@polishedprocleaners.net", href: "#" },
+    { name: "Email us", href: "mailto:info@polishedprocleaners.net" },
   ],
   legal: [
     { name: "License", href: "#" },
     { name: "Terms of service", href: "#" },
-    { name: "Privacy policy", href: "#" },
+    { name: "Privacy policy", href: "/privacy-policy.pdf" },
   ],
   social: [
     {
@@ -77,19 +78,20 @@ const navigation = {
 export default function Example() {
   return (
     <footer className="bg-white">
-      <div className="mx-auto max-w-7xl px-6 pt-16 pb-8 sm:pt-24 lg:px-8 lg:pt-2">
+      <Container className="pt-16 pb-8 sm:pt-24 lg:pt-2">
         <div className="mb-9 border-t border-gray-900/10 pt-8 sm:mb-12 lg:mb-17"></div>
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
-            <img
-              src="/images/img1.png"
+            <Image
+              src="/images/logo.png"
               alt="PolishedPro Cleaners"
               width={50}
               height={50}
               className="h-[100px] w-auto"
+              unoptimized
             />
             <p className="text-sm/6 text-balance text-gray-600">
-              "Leave the Cleaning to Us"
+              &quot;Leave the Cleaning to Us&quot;
             </p>
             <div className="flex gap-x-6">
               {navigation.social.map((item) => (
@@ -183,7 +185,7 @@ export default function Example() {
             Us.
           </p>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

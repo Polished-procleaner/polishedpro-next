@@ -13,7 +13,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-3">
               <Image
-                src="/images/img1.png"
+                src="/images/logo-2.png"
                 alt="PolishedPro Cleaners"
                 width={42}
                 height={42}
@@ -24,14 +24,14 @@ export default function Footer() {
               </h3>
             </div>
 
-            <p className="italic mb-2">"Leave the Cleaning to Us"</p>
+            <p className="italic mb-2">&quot;Leave the Cleaning to Us&quot;</p>
 
-            <p className="text-white/80 leading-relaxed">
+            {/* <p className="text-white/80 leading-relaxed">
               Your trusted local cleaning experts, bringing professional results
-              and genuine care to every project. We're more than just cleaners –
-              we're your neighbors who happen to be really good at making things
-              shine.
-            </p>
+              and genuine care to every project. We&aps;re more than just
+              cleaners – we're your neighbors who happen to be really good at
+              making things shine.
+            </p> */}
 
             <div className="flex items-center gap-3 mt-4">
               <a

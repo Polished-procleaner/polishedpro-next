@@ -12,7 +12,7 @@ import {
   FaCalendarCheck,
 } from "react-icons/fa";
 import PageHero from "@/components/PageHero";
-import SectionForm from "@/components/SectionForm";
+import SectionForm from "@/components/design/SectionForm";
 
 export default function ContactPage() {
   return (
@@ -29,7 +29,7 @@ export default function ContactPage() {
       <section className="bg-green-50 py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-12 text-center">
-            <span className="inline-block rounded-full bg-gradient-to-r from-sky-500 to-green-500 px-6 py-2 font-semibold text-white">
+            <span className="inline-block rounded-full bg-linear-to-r from-sky-500 to-green-500 px-6 py-2 font-semibold text-white">
               Multiple Ways to Connect
             </span>
             <h2 className="mt-4 font-display text-3xl font-bold text-gray-900 md:text-5xl">
@@ -42,10 +42,10 @@ export default function ContactPage() {
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             <article className="group relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-8 shadow-md transition hover:-translate-y-1">
-              <span className="pointer-events-none absolute left-1/2 -top-px h-1 w-0 -translate-x-1/2 rounded-full bg-gradient-to-r from-sky-500 via-green-500 to-sky-500 transition-all duration-300 group-hover:w-full" />
+              <span className="pointer-events-none absolute left-1/2 -top-px h-1 w-0 -translate-x-1/2 rounded-full bg-linear-to-r from-sky-500 via-green-500 to-sky-500 transition-all duration-300 group-hover:w-full" />
               <div
                 onClick={() => (window.location.href = "tel:+18882626068")}
-                className="mb-4 flex h-16 w-16 cursor-pointer items-center justify-center rounded-2xl bg-gradient-to-r from-sky-500 to-green-500 text-white"
+                className="mb-4 flex h-16 w-16 cursor-pointer items-center justify-center rounded-2xl bg-linear-to-r from-sky-500 to-green-500 text-white"
                 title="Call or Text"
               >
                 <FaPhone className="text-2xl" />

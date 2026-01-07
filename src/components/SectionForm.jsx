@@ -1,5 +1,7 @@
+import { fadeInUpVariant } from "@/constants/animationVariants";
 import { trackEvent } from "@/lib/facebookPixel";
-import { Content } from "next/font/google";
+import { motion } from "framer-motion";
+
 import { useState } from "react";
 import {
   FaPhone,
@@ -178,13 +180,19 @@ export default function SectionForm() {
   };
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 px-6">
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.2 }}
+      variants={fadeInUpVariant}
+      className="bg-white"
+    >
+      <div className="grid md:grid-cols-2 gap-10">
         <aside className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-sky-500 via-sky-700 to-sky-900 p-8 md:p-10 text-white shadow-xl">
           <div className="pointer-events-none absolute -top-20 -right-16 h-64 w-64 rounded-full bg-white/10 blur-2xl" />
 
           <h3 className="text-2xl md:text-3xl font-bold">
-            Let's Start the Conversation
+            Let&apos;s Start the Conversation
           </h3>
           <p className="mt-4 leading-relaxed opacity-90">
             Ready to see what professional cleaning can do for your space?
@@ -215,25 +223,25 @@ export default function SectionForm() {
           <h3 className="text-2xl font-bold mb-8">Get Your Free Quote</h3>
 
           {submitStatus === "validation" && (
-            <div className="mb-6 p-4 bg-yellow-100 border border-yellow-400 text-yellow-700 rounded-xl">
+            <div className="mb-6 px-4 py-2 bg-yellow-100 border border-yellow-400 text-yellow-700 rounded-xl text-sm">
               Please fill in all required fields.
             </div>
           )}
 
           {submitStatus === "success" && (
-            <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-xl">
-              Message sent successfully! We'll contact you soon.
+            <div className="mb-6 px-4 py-2 bg-green-100 border border-green-400 text-green-700 rounded-xl text-sm">
+              Message sent successfully! We&apos;ll contact you soon.
             </div>
           )}
 
           {submitStatus === "error" && (
-            <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-xl">
+            <div className="mb-6 px-4 py-2 bg-red-100 border border-red-400 text-red-700 rounded-xl text-sm">
               Error sending message. Please try again.
             </div>
           )}
 
           <div className="mb-6">
-            <label htmlFor="name" className="block font-semibold mb-2">
+            <label htmlFor="name" className="block font-semibold mb-2 text-sm">
               Your Name <span className="text-red-500">*</span>
             </label>
             <input
@@ -243,13 +251,16 @@ export default function SectionForm() {
               value={formData.name}
               onChange={handleInputChange}
               required
-              className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition"
+              className="text-base sm:text-sm w-full px-4 py-2 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition"
             />
           </div>
 
           <div className="grid md:grid-cols-2 gap-4 mb-6">
             <div>
-              <label htmlFor="email" className="block font-semibold mb-2">
+              <label
+                htmlFor="email"
+                className="block font-semibold mb-2 text-sm"
+              >
                 Email Address <span className="text-red-500">*</span>
               </label>
               <input
@@ -260,11 +271,14 @@ export default function SectionForm() {
                 onChange={handleInputChange}
                 required
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition"
+                className="text-base sm:text-sm w-full px-4 py-2 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition"
               />
             </div>
             <div>
-              <label htmlFor="phone" className="block font-semibold mb-2">
+              <label
+                htmlFor="phone"
+                className="block font-semibold mb-2 text-sm"
+              >
                 Phone Number <span className="text-red-500">*</span>
               </label>
               <input
@@ -274,13 +288,16 @@ export default function SectionForm() {
                 value={formData.phone}
                 onChange={handleInputChange}
                 required
-                className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition"
+                className="text-base sm:text-sm w-full px-4 py-2 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition"
               />
             </div>
           </div>
 
           <div className="mb-6">
-            <label htmlFor="service" className="block font-semibold mb-2">
+            <label
+              htmlFor="service"
+              className="block font-semibold mb-2 text-sm"
+            >
               Service Category
             </label>
             <select
@@ -288,7 +305,7 @@ export default function SectionForm() {
               name="service"
               value={formData.service}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition"
+              className="custom-select text-base sm:text-sm w-full px-4 py-2 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition"
             >
               <option value="">Select a service category</option>
               <option value="residential">Residential Cleaning</option>
@@ -302,7 +319,7 @@ export default function SectionForm() {
               <div>
                 <label
                   htmlFor="residentialType"
-                  className="block font-semibold mb-2"
+                  className="block font-semibold mb-2 text-sm"
                 >
                   Residential Service Type
                 </label>
@@ -311,7 +328,7 @@ export default function SectionForm() {
                   name="residentialType"
                   value={formData.residentialType}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition"
+                  className="custom-select  text-base sm:text-sm w-full px-4 py-2 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition"
                 >
                   <option value="">Select service type</option>
                   <option value="standard">Standard Cleaning</option>
@@ -324,7 +341,7 @@ export default function SectionForm() {
                 <div>
                   <label
                     htmlFor="bedrooms"
-                    className="block font-semibold mb-2"
+                    className="block font-semibold mb-2 text-sm"
                   >
                     Number of Bedrooms
                   </label>
@@ -333,7 +350,7 @@ export default function SectionForm() {
                     name="bedrooms"
                     value={formData.bedrooms}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition"
+                    className="custom-select  text-base sm:text-sm w-full px-4 py-2 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition"
                   >
                     <option value="">Select bedrooms</option>
                     <option value="studio">Studio</option>
@@ -347,7 +364,7 @@ export default function SectionForm() {
                 <div>
                   <label
                     htmlFor="squareFeetRes"
-                    className="block font-semibold mb-2"
+                    className="block font-semibold mb-2 text-sm"
                   >
                     Square Feet
                   </label>
@@ -358,7 +375,7 @@ export default function SectionForm() {
                     value={formData.squareFeetRes}
                     onChange={handleInputChange}
                     placeholder="Approximate square feet"
-                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition"
+                    className="text-base sm:text-sm w-full px-4 py-2 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition"
                   />
                 </div>
               </div>
@@ -370,7 +387,7 @@ export default function SectionForm() {
               <div>
                 <label
                   htmlFor="commercialType"
-                  className="block font-semibold mb-2"
+                  className="block font-semibold mb-2 text-sm"
                 >
                   Commercial Service Type
                 </label>
@@ -379,7 +396,7 @@ export default function SectionForm() {
                   name="commercialType"
                   value={formData.commercialType}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition"
+                  className="custom-select  text-base sm:text-sm w-full px-4 py-2 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition"
                 >
                   <option value="">Select service type</option>
                   <option value="office">Office Cleaning</option>
@@ -389,7 +406,7 @@ export default function SectionForm() {
               <div>
                 <label
                   htmlFor="squareFeetCom"
-                  className="block font-semibold mb-2"
+                  className="block font-semibold mb-2 text-sm"
                 >
                   Square Feet
                 </label>
@@ -400,7 +417,7 @@ export default function SectionForm() {
                   value={formData.squareFeetCom}
                   onChange={handleInputChange}
                   placeholder="Total square feet of space"
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition"
+                  className="text-base sm:text-sm w-full px-4 py-2 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition"
                 />
               </div>
             </div>
@@ -410,7 +427,7 @@ export default function SectionForm() {
             <div className="mb-6">
               <label
                 htmlFor="specializedType"
-                className="block font-semibold mb-2"
+                className="block font-semibold mb-2 text-sm"
               >
                 Specialized Service Type
               </label>
@@ -419,7 +436,7 @@ export default function SectionForm() {
                 name="specializedType"
                 value={formData.specializedType}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition"
+                className="custom-select text-base sm:text-sm w-full px-4 py-2 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition"
               >
                 <option value="">Select service type</option>
                 <option value="carpet">Carpet Cleaning</option>
@@ -432,7 +449,10 @@ export default function SectionForm() {
           )}
 
           <div className="mb-6">
-            <label htmlFor="specialAreas" className="block font-semibold mb-2">
+            <label
+              htmlFor="specialAreas"
+              className="block font-semibold mb-2 text-sm"
+            >
               Special Areas Needing Attention
             </label>
             <textarea
@@ -441,12 +461,15 @@ export default function SectionForm() {
               value={formData.specialAreas}
               onChange={handleInputChange}
               placeholder="Tell us about any specific areas that need special attention"
-              className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition min-h-[120px]"
+              className="text-base sm:text-sm w-full px-4 py-2 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition min-h-[120px]"
             />
           </div>
 
           <div className="mb-6">
-            <label htmlFor="message" className="block font-semibold mb-2">
+            <label
+              htmlFor="message"
+              className="block font-semibold mb-2 text-sm"
+            >
               Additional Information
             </label>
             <textarea
@@ -455,7 +478,7 @@ export default function SectionForm() {
               value={formData.message}
               onChange={handleInputChange}
               placeholder="Any other details you'd like to share about your cleaning needs?"
-              className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition min-h-[120px]"
+              className="text-base sm:text-sm w-full px-4 py-2 rounded-xl border-2 border-gray-200 bg-green-50 focus:bg-white focus:outline-none focus:border-green-500 hover:border-green-500 transition min-h-[120px]"
             />
           </div>
 
@@ -463,13 +486,13 @@ export default function SectionForm() {
             type="button"
             onClick={handleSubmit}
             disabled={isSubmitting}
-            className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold text-white bg-green-500 shadow-lg transition-transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+            className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 text-sm rounded-full font-semibold text-white bg-green-500 shadow-lg transition-transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
           >
             <FaPaperPlane />
             {isSubmitting ? "Sending..." : "Send Message"}
           </button>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
