@@ -55,8 +55,6 @@ export default function ContactForm() {
     );
 
     if (response.ok) {
-      router.push("/thanks");
-
       trackEvent("lead", {
         content_name: "Contact Form",
         name: formData.name,
@@ -69,6 +67,8 @@ export default function ContactForm() {
         page_path: "/gracias",
         page_title: "Thank You - Form Submitted",
       });
+
+      router.push("/thanks");
 
       return;
     }
