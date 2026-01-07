@@ -585,7 +585,7 @@ export default function HomePage() {
         buttonLink={"/contact"}
       />
       {/* Blog */}
-      <Blog />
+      {/* <Blog /> */}
     </main>
   );
 }
