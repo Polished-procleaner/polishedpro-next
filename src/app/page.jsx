@@ -34,6 +34,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 
 function ServiceCard({ item }) {
   return (
@@ -244,6 +245,37 @@ function OurWorks() {
   );
 }
 
+function HoverVideo({ image }) {
+  const videoRef = useRef(null);
+
+  return (
+    <div
+      className="relative w-full h-48 rounded-lg overflow-hidden"
+      onMouseEnter={() => videoRef.current?.play()}
+      onMouseLeave={() => {
+        videoRef.current?.pause();
+        videoRef.current.currentTime = 0; // (opcional) reinicia
+      }}
+    >
+      <Image
+        src={image}
+        alt="preview"
+        fill
+        className="object-cover transition-opacity duration-300 group-hover:opacity-0"
+      />
+
+      <video
+        ref={videoRef}
+        src="https://video.wixstatic.com/video/02498f_ff2b45f9c9fc482b95a489793c4112b2/720p/mp4/file.mp4"
+        className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        muted
+        loop
+        playsInline
+      />
+    </div>
+  );
+}
+
 function Features() {
   const items = [
     {
@@ -315,15 +347,10 @@ function Features() {
               whileHover={{ scale: 1.08 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
               variants={fadeInUpVariant}
-              className="flex flex-col gap-4"
+              className="flex flex-col gap-4 group"
             >
-              <Image
-                src={item.image}
-                alt={item.description}
-                width={500}
-                height={500}
-                className="w-full h-48 object-cover rounded-lg"
-              />
+              <HoverVideo image={item.image} description={item.description} />
+
               <p className="text-gray-600 text-sm text-center">
                 {item.description}
               </p>
