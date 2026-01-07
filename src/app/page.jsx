@@ -35,6 +35,7 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { useRef } from "react";
+import Link from "next/link";
 
 function ServiceCard({ item }) {
   return (
@@ -403,14 +404,22 @@ export default function HomePage() {
               variants={fadeInUpVariant}
               className="pt-2 flex items-center gap-4"
             >
-              <Button variant={"theme"} size={"lg"} className={"rounded-xl"}>
-                <CalendarCheck className="size-5" />
-                Book Now
-              </Button>
-              <Button variant={"default"} size={"lg"} className={"rounded-xl"}>
-                <FaPlay className="size-4" />
-                Our Services
-              </Button>
+              <Link href="/contact">
+                <Button variant={"theme"} size={"lg"} className={"rounded-xl"}>
+                  <CalendarCheck className="size-5" />
+                  Book Now
+                </Button>
+              </Link>
+              <Link href="/services">
+                <Button
+                  variant={"default"}
+                  size={"lg"}
+                  className={"rounded-xl"}
+                >
+                  <FaPlay className="size-4" />
+                  Our Services
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
           <motion.div
