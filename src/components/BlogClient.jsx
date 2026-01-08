@@ -12,8 +12,6 @@ function wixImageToHttpUrl(wixImageUrl) {
 }
 
 export default function BlogClient({ posts }) {
-  console.log(posts);
-
   return (
     <div className="bg-white py-20 sm:py-20">
       <Container className={"py-16 sm:py-24 flex flex-col gap-16"}>
