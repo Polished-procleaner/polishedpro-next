@@ -2,7 +2,7 @@
 
 // Icons
 import { FaPlay } from "react-icons/fa";
-import { CalendarCheck } from "lucide-react";
+import { CalendarCheck, Info } from "lucide-react";
 import { FaUsers, FaStar, FaHandshake, FaRocket } from "react-icons/fa";
 
 // Animation Variants
@@ -433,6 +433,18 @@ export default function HomePage() {
               Get Your Free Quote
             </h2>
             <ContactForm />
+            <p className="text-xs text-white text-center">
+              <Info className="inline mr-2 size-3" />
+              By submitting this form, you agree to our{" "}
+              <a
+                href="/privacy-policy.pdf"
+                target="_blank"
+                className="underline"
+              >
+                Privacy Policy
+              </a>
+              .
+            </p>
           </motion.div>
         </Container>
       </section>

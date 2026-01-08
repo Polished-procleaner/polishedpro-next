@@ -16,8 +16,8 @@ import {
 } from "../ui/carousel";
 import Image from "next/image";
 import { Button } from "../ui/button";
-import testimonialData from "@/constants/testimonials.json";
-import { useState } from "react";
+//import testimonialData from "@/constants/testimonials.json";
+import { useEffect, useState } from "react";
 
 const Rating = ({ rating }) => {
   return (
@@ -37,30 +37,47 @@ const Rating = ({ rating }) => {
 
 const TestimonialCard = ({ data }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const isLong = data.description.length > 120;
+  const isLong = data.comment?.length > 120;
+
+  const typeRating = {
+    FIVE: 5,
+    FOUR: 4,
+    THREE: 3,
+    TWO: 2,
+    ONE: 1,
+  };
+
+  const formatted = new Date(data.createTime).toLocaleDateString("en-US", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
+
   return (
     <div className="flex flex-col items-start gap-2 bg-gray-50 p-6 rounded-2xl h-full border border-gray-200">
       <div className="flex items-center gap-2 w-full">
         <Image
-          src={data.image}
-          alt={data.name}
+          src={data.reviewer.profilePhotoUrl}
+          alt={data.reviewer.displayName}
           width={50}
           height={50}
           className="rounded-full shrink-0"
           unoptimized
         />
         <div className="flex flex-col">
-          <h3 className="text-sm font-semibold text-gray-900">{data.name}</h3>
-          <span className="text-xs text-gray-500">{data.date}</span>
+          <h3 className="text-sm font-semibold text-gray-900">
+            {data.reviewer.displayName}
+          </h3>
+          <span className="text-xs text-gray-500">{formatted}</span>
         </div>
       </div>
-      <Rating rating={data.rating} />
+      <Rating rating={typeRating[data.starRating]} />
       <div className="flex-1">
         <p className="text-gray-600 leading-relaxed text-sm">
           &quot;
           {isLong && !isExpanded
-            ? `${data.description.slice(0, 120)}...`
-            : data.description}
+            ? `${data.comment.slice(0, 120)}...`
+            : data.comment}
           &quot;
         </p>
         {isLong && (
@@ -77,6 +94,22 @@ const TestimonialCard = ({ data }) => {
 };
 
 export default function TestimonialsSection() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const response = await fetch("/api/reviews");
+        const data = await response.json();
+        console.log(data);
+        setData(data);
+      } catch (error) {
+        console.error("Error fetching testimonials:", error);
+      }
+    };
+    fetchTestimonials();
+  }, []);
+
   return (
     <Container
       id="testimonials"
@@ -118,9 +151,9 @@ export default function TestimonialsSection() {
                 className="object-contain size-full"
               />
             </div>
-            <Rating rating={5} />
+            <Rating rating={data.averageRating} />
             <span className="text-gray-500 text-sm">
-              Based on {testimonialData.length} reviews
+              Based on {data.totalReviewCount} reviews
             </span>
             <a
               href="https://share.google/waT87hhK46ZxEZRpQ"
@@ -131,28 +164,30 @@ export default function TestimonialsSection() {
             </a>
           </div>
         </div>
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="sm:flex-1 sm:min-w-0"
-        >
-          <CarouselContent className="-ml-4">
-            {testimonialData.map((testimonial, index) => (
-              <CarouselItem
-                key={index}
-                className="pl-4 basis-full xs:basis-1/2 lg:basis-1/3 xl:basis-1/4"
-              >
-                <div className="h-full">
-                  <TestimonialCard data={testimonial} />
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="absolute left-1 top-1/2 -translate-y-1/2 z-10 bg-black/30 text-white hover:bg-black/50 border-none size-8" />
-          <CarouselNext className="absolute right-1 top-1/2 -translate-y-1/2 z-10 bg-black/30 text-white hover:bg-black/50 border-none size-8" />
-        </Carousel>
+        {data?.reviews?.length > 0 && (
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="sm:flex-1 sm:min-w-0"
+          >
+            <CarouselContent className="-ml-4">
+              {data?.reviews?.map((review) => (
+                <CarouselItem
+                  key={review.reviewId}
+                  className="pl-4 basis-full xs:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                >
+                  <div className="h-full">
+                    <TestimonialCard data={review} />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="absolute left-1 top-1/2 -translate-y-1/2 z-10 bg-black/30 text-white hover:bg-black/50 border-none size-8" />
+            <CarouselNext className="absolute right-1 top-1/2 -translate-y-1/2 z-10 bg-black/30 text-white hover:bg-black/50 border-none size-8" />
+          </Carousel>
+        )}
       </motion.div>
       <div className="-z-1 absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-96 bg-linear-to-b from-sky-500/30 via-green-500/20 to-transparent blur-3xl rounded-full opacity-30" />
     </Container>

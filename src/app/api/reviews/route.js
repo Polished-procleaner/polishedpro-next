@@ -15,6 +15,7 @@ export async function GET() {
         refresh_token: process.env.GOOGLE_REFRESH_TOKEN,
         grant_type: "refresh_token",
       }),
+      next: { revalidate: 3600 },
     });
 
     const tokenData = await tokenResponse.json();
@@ -30,18 +31,42 @@ export async function GET() {
 
     const accessToken = tokenData.access_token;
 
-    // PASO 2: Obtener las reseñas
-    const reviewsResponse = await fetch(
-      `https://mybusiness.googleapis.com/v4/accounts/${ACCOUNT_ID}/locations/${LOCATION_ID}/reviews`,
-      {
+    // PASO 2: Obtener TODAS las reseñas (paginación)
+    let allReviews = [];
+    let nextPageToken;
+    let firstPageData = null;
+
+    do {
+      const url = new URL(
+        `https://mybusiness.googleapis.com/v4/accounts/${ACCOUNT_ID}/locations/${LOCATION_ID}/reviews`
+      );
+
+      if (nextPageToken) {
+        url.searchParams.set("pageToken", nextPageToken);
+      }
+
+      const response = await fetch(url.toString(), {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
-      }
-    );
+      });
 
-    const reviewsData = await reviewsResponse.json();
-    return NextResponse.json(reviewsData);
+      const data = await response.json();
+
+      if (!firstPageData) {
+        firstPageData = data; // guardamos metadata
+      }
+
+      allReviews.push(...(data.reviews || []));
+      nextPageToken = data.nextPageToken;
+    } while (nextPageToken);
+
+    // RESPUESTA FINAL
+    return NextResponse.json({
+      totalReviewCount: firstPageData?.totalReviewCount ?? allReviews.length,
+      averageRating: firstPageData?.averageRating,
+      reviews: allReviews,
+    });
   } catch (error) {
     // Esto imprimirá el error real en la consola de VS Code / Terminal
     console.error("DETALLE DEL ERROR:", error);
