@@ -101,7 +101,6 @@ export default function TestimonialsSection() {
       try {
         const response = await fetch("/api/reviews");
         const data = await response.json();
-        console.log(data);
         setData(data);
       } catch (error) {
         console.error("Error fetching testimonials:", error);
