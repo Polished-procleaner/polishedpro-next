@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -5,7 +7,7 @@ import { Loader2 } from "lucide-react";
 import { trackEvent } from "@/lib/facebookPixel";
 import { useRouter } from "next/navigation";
 
-export default function ContactForm() {
+export default function HomeForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [formData, setFormData] = useState({
@@ -125,38 +127,6 @@ export default function ContactForm() {
           <option value="commercial">Commercial Cleaning</option>
           <option value="specialized">Specialized Floor Cleaning</option>
         </select>
-      </div>
-
-      <div className="flex flex-col gap-4 text-xs text-gray-500">
-        <p>
-          Do you agree to receive text messages from{" "}
-          <span className="font-bold">Polishedpro Cleaners</span> sent from{" "}
-          <span className="font-bold">18882626068</span>?
-          <br />
-          Message frequency varies and may include{" "}
-          <span className="font-bold">
-            appointment confirmations, reminders, and customer support
-          </span>
-          . Message and data rates may apply. Reply STOP or CANCEL at any time
-          to end or unsubscribe. For assistance, reply HELP or contact support
-          at: <span className="font-bold">18882626068</span>.
-        </p>
-        <div className="flex items-center gap-2">
-          <input type="checkbox" id="terms" name="terms" />
-          <label htmlFor="terms">
-            I agree to receive text messages from{" "}
-            <span className="font-bold">Polishedpro Cleaners</span> sent from
-            <span className="font-bold">18882626068</span>.
-          </label>
-        </div>
-
-        <p>
-          See our{" "}
-          <a href="/privacy-policy.pdf" target="_blank" className="underline">
-            Privacy Policy
-          </a>{" "}
-          for details on how we handle your information.
-        </p>
       </div>
 
       <Button variant={"theme"} type="submit" disabled={isSubmitting}>

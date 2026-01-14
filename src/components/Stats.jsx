@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "motion/react";
 import { useRef, useEffect, useState } from "react";
 import { Award, Clock, Smile, Star } from "lucide-react";

@@ -1,4 +1,3 @@
-import { Info } from "lucide-react";
 import ContactForm from "../ContactForm";
 import Container from "./Container";
 
@@ -73,14 +72,14 @@ export default function SectionForm() {
           estimate.
         </p>
         <ContactForm />
-        <p className="text-xs text-gray-500 text-center">
+        {/* <p className="text-xs text-gray-500 text-center">
           <Info className="inline mr-2 size-3" />
           By submitting this form, you agree to our{" "}
           <a href="/privacy-policy.pdf" target="_blank" className="underline">
             Privacy Policy
           </a>
           .
-        </p>
+        </p> */}
       </div>
     </Container>
   );
