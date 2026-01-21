@@ -6,9 +6,11 @@ export default async function TestimonialsSection() {
     {
       cache: "force-cache",
       next: { revalidate: 60 * 60 },
-    }
+    },
   );
   const data = await response.json();
+
+  console.log(data);
 
   return <TestimonialsSectionClient data={data} />;
 }
