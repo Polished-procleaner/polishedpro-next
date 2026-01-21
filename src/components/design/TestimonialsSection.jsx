@@ -8,7 +8,7 @@ export default async function TestimonialsSection() {
       next: { revalidate: 60 * 60 },
     },
   );
-  const data = await response.json();
+  const res = await response.json();
 
-  return <TestimonialsSectionClient data={data} />;
+  return <TestimonialsSectionClient data={res} />;
 }

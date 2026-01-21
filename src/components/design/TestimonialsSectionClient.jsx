@@ -29,7 +29,7 @@ const Rating = ({ rating }) => {
           key={i}
           className={clsx(
             "size-5 fill-gray-300 text-gray-300",
-            i < rating && "fill-yellow-400 text-yellow-400"
+            i < rating && "fill-yellow-400 text-yellow-400",
           )}
         />
       ))}
@@ -96,21 +96,6 @@ const TestimonialCard = ({ data }) => {
 };
 
 export default function TestimonialsSectionClient({ data }) {
-  /* const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const fetchTestimonials = async () => {
-      try {
-        const response = await fetch("/api/reviews");
-        const data = await response.json();
-        setData(data);
-      } catch (error) {
-        console.error("Error fetching testimonials:", error);
-      }
-    };
-    fetchTestimonials();
-  }, []); */
-
   return (
     <Container
       id="testimonials"
