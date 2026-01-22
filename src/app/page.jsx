@@ -6,7 +6,7 @@ import Card from "@/components/Card";
 import TestimonialsSection from "@/components/design/TestimonialsSection";
 import HomeSections from "@/components/design/HomeSections";
 
-export const dynamic = "force-static";
+//export const dynamic = "force-static";
 
 export default function HomePage() {
   return (

@@ -13,6 +13,8 @@ export default function ContactForm() {
     email: "",
     phone: "",
     service: "",
+    terms: "False",
+    terms2: "False",
   });
 
   const router = useRouter();
@@ -51,7 +53,7 @@ export default function ContactForm() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(dataToSend),
-      }
+      },
     );
 
     if (response.ok) {
@@ -133,20 +135,43 @@ export default function ContactForm() {
           <span className="font-bold">Polishedpro Cleaners</span> sent from{" "}
           <span className="font-bold">18882626068</span>?
           <br />
-          Message frequency varies and may include{" "}
+          Messages may include service-related communications, appointment
+          confirmations, reminders, customer support communications, and
+          marketing communications. You may reply STOP or UNSUBSCRIBE at any
+          time to end or unsubscribe, and after opting out you will receive a
+          final confirmation message. For assistance, reply HELP or contact
+          support at <span className="font-bold">18882626068</span>.
+          {/* Message frequency varies and may include{" "}
           <span className="font-bold">
             appointment confirmations, reminders, and customer support
           </span>
-          . Message and data rates may apply. Reply STOP or CANCEL at any time
+          . Message and data rates may apply. Reply STOP or UNSUBSCRIBE at any time
           to end or unsubscribe. For assistance, reply HELP or contact support
-          at: <span className="font-bold">18882626068</span>.
+          at: <span className="font-bold">18882626068</span>. */}
         </p>
         <div className="flex items-center gap-2">
-          <input type="checkbox" id="terms" name="terms" />
+          <input
+            type="checkbox"
+            id="terms"
+            name="terms"
+            onChange={handleInputChange}
+          />
           <label htmlFor="terms">
             I agree to receive text messages from{" "}
             <span className="font-bold">Polishedpro Cleaners</span> sent from
             <span className="font-bold">18882626068</span>.
+          </label>
+        </div>
+        <div className="flex items-center gap-2">
+          <input
+            type="checkbox"
+            id="terms2"
+            name="terms2"
+            onChange={handleInputChange}
+          />
+          <label htmlFor="terms2">
+            I No, I do not agree to receive text messages from{" "}
+            <span className="font-bold">Polishedpro Cleaners</span>.
           </label>
         </div>
 
