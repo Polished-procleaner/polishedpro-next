@@ -162,7 +162,7 @@ export default function TestimonialsSectionClient({ data }) {
               {data?.reviews?.map((review) => (
                 <CarouselItem
                   key={review.reviewId}
-                  className="pl-4 basis-full xs:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                  className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
                 >
                   <div className="h-full">
                     <TestimonialCard data={review} />

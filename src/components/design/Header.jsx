@@ -87,20 +87,20 @@ const Header = () => {
         "fixed top-0 z-50 w-full py-2 transition-all duration-500 ease-out",
         scrolled
           ? "backdrop-blur-md bg-gray-100/80 shadow-lg"
-          : "backdrop-blur-md bg-white shadow-none"
+          : "backdrop-blur-md bg-white shadow-none",
       )}
     >
       <Container className={"flex items-center gap-10"}>
         <Link
           href="/"
-          className="flex items-center gap-2 transition-transform hover:scale-105 w-auto h-16"
+          className="flex items-center gap-2 transition-transform hover:scale-105 size-20"
         >
           <Image
             width={100}
             height={100}
             src="/images/logo.png"
             alt="PolishedPro"
-            className="size-full object-cover"
+            className="size-full object-contain"
           />
         </Link>
         <ul className="hidden items-center gap-5 lg:gap-10 md:flex">
