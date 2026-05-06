@@ -40,10 +40,7 @@ function ServiceCard({ item }) {
         height={500}
         unoptimized
       />
-
-      {/* Contenedor de texto con blur degradado */}
       <div className="absolute bottom-0 left-0 right-0 p-6">
-        {/* Capa de blur que se desvanece hacia arriba */}
         <div
           className="absolute inset-0 -top-20 backdrop-blur-2xl"
           style={{
@@ -52,11 +49,7 @@ function ServiceCard({ item }) {
               "linear-gradient(to top, black 30%, transparent 100%)",
           }}
         />
-
-        {/* Overlay con gradiente de color */}
         <div className="absolute inset-0 -top-20 bg-linear-to-t from-black/60 via-black/30 to-transparent" />
-
-        {/* Contenido de texto */}
         <div className="relative z-10">
           <h2 className="text-2xl font-semibold text-white mb-2 drop-shadow-lg">
             {item.title}
@@ -151,7 +144,6 @@ function WhyChooseUs() {
           </motion.div>
         ))}
       </motion.div>
-      {/* Decoración */}
       <div
         aria-hidden="true"
         className="absolute -top-24 right-0 -z-10 transform-gpu blur-3xl"
@@ -185,18 +177,6 @@ function OurWorks() {
       variants={fadeInUpVariant}
       className=""
     >
-      {/* <WorksCarousel /> */}
-      {/* {images.map((image, index) => (
-        <div key={index} className="rounded-2xl aspect-3/2">
-          <Image
-            src={image}
-            alt={`image-${index}`}
-            width={600}
-            height={400}
-            className="size-full object-cover rounded-2xl"
-          />
-        </div>
-      ))} */}
       <Carousel
         opts={{
           align: "start",
@@ -225,7 +205,6 @@ function OurWorks() {
             </CarouselItem>
           ))}
         </CarouselContent>
-
         <div className="flex justify-center gap-2 mt-8">
           <CarouselPrevious className="static translate-y-0 translate-x-0" />
           <CarouselNext className="static translate-y-0 translate-x-0" />
@@ -240,8 +219,6 @@ export default function HomeSections() {
     <>
       {/* Hero Section */}
       <section className="relative flex items-center min-h-[calc(100vh-120px)] overflow-hidden">
-        {/* Con imagen*/}
-        {/* <div className="absolute inset-0 bg-gradient-to-r from-white/90  to-transparent z-1 from-80% w-[60%]" /> */}
         <div className="absolute inset-0 bg-linear-to-r from-white/90 via-white/90 to-white/60 md:to-transparent z-1 w-full md:w-[70%]" />
         <div className="absolute inset-0 bg-[url('https://static.wixstatic.com/media/02498f_1584ba7b2af84b1bbbd0f68057f8cb07~mv2.jpeg')] bg-cover bg-center z-0" />
         <Container
@@ -252,7 +229,6 @@ export default function HomeSections() {
         >
           <motion.div
             initial="hidden"
-            //animate="visible"
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
             variants={containerVariant}
@@ -260,7 +236,7 @@ export default function HomeSections() {
           >
             <motion.h1 variants={fadeInUpVariant} className="h1 text-gray-900">
               Transform Your Space with{" "}
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-primary-blue  to-primary-green">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-primary-blue to-primary-green">
                 Professional Cleaning
               </span>
             </motion.h1>
@@ -270,7 +246,10 @@ export default function HomeSections() {
             >
               Experience professional cleaning designed to elevate the quality
               of your space. We focus on perfection, care, and hygiene, ensuring
-              visible results from the very first moment.
+              visible results from the very first moment.{" "}
+              <span className="not-italic font-medium text-gray-700">
+                Proudly serving Fort Lauderdale, Broward County &amp; all of South Florida.
+              </span>
             </motion.p>
             <motion.div
               variants={fadeInUpVariant}
@@ -308,7 +287,7 @@ export default function HomeSections() {
             <p className="text-xs text-white text-center">
               <Info className="inline mr-2 size-3" />
               By submitting this form, you agree to our{" "}
-              <a
+              
                 href="/privacy-policy.pdf"
                 target="_blank"
                 className="underline"
@@ -322,9 +301,9 @@ export default function HomeSections() {
       </section>
       {/* About Section */}
       <AboutSection />
-      {/* New Section */}
+      {/* Features Section */}
       <Features />
-      <div className="z-2 relative overflow-hidden ">
+      <div className="z-2 relative overflow-hidden">
         <motion.div
           variants={fadeInUpVariant}
           className="mx-auto max-w-7xl px-6 lg:px-8"
@@ -355,7 +334,6 @@ export default function HomeSections() {
       >
         <motion.div
           initial="hidden"
-          //animate="visible"
           whileInView="visible"
           viewport={{ once: false, amount: 0.2 }}
           variants={containerVariant}
@@ -383,7 +361,6 @@ export default function HomeSections() {
             spotless, comfortable, and ready for any occasion.
           </motion.p>
         </motion.div>
-        {/* Services Grid */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -407,7 +384,6 @@ export default function HomeSections() {
             className="relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-sky-500/30 to-green-500/20 opacity-40 sm:left-[calc(60%-10rem)] sm:w-288.75"
           />
         </div>
-        {/* <div className="-z-1 absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-96 bg-linear-to-b from-sky-500/30 via-green-500/20 to-transparent blur-3xl rounded-full opacity-30" /> */}
       </Container>
       {/* Works Section */}
       <Container
@@ -417,7 +393,6 @@ export default function HomeSections() {
       >
         <motion.div
           initial="hidden"
-          //animate="visible"
           whileInView="visible"
           viewport={{ once: false, amount: 0.2 }}
           variants={containerVariant}
