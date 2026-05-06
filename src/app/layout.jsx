@@ -21,8 +21,8 @@ const space = Space_Grotesk({
 });
 
 export const metadata = {
-  title: "PolishedPro Cleaners",
-  description: "Leave the Cleaning to Us",
+  title: "PolishedPro Cleaners | Commercial & Residential Cleaning in Fort Lauderdale & Broward County",
+  description: "Professional commercial and residential cleaning services in Fort Lauderdale, Davie, and Broward County, FL. Office cleaning, post-construction cleanup, janitorial services, and more. 77+ five-star reviews. Call (888) 262-6068.",
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -31,7 +31,6 @@ export const metadata = {
     ],
     apple: "/apple-touch-icon.png",
   },
-  //manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({ children }) {
