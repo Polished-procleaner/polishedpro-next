@@ -1,7 +1,8 @@
 "use client";
 import {
     FaHome, FaBroom, FaTruck, FaBed, FaBriefcase, FaWarehouse,
-    FaPaintRoller, FaThLarge, FaCouch, FaHardHat, FaCalendarCheck
+    FaPaintRoller, FaThLarge, FaCouch, FaHardHat, FaCalendarCheck,
+    FaStore, FaHospital
 } from "react-icons/fa";
 import { FaRug } from "react-icons/fa6";
 import CTASection from "@/components/CTASection";
@@ -77,7 +78,7 @@ export default function ServicesPage() {
                             Commercial Cleaning
                             <span className="absolute left-1/2 -bottom-1.5 w-24 h-1 bg-gradient-to-r from-sky-500 to-green-500 -translate-x-1/2"></span>
                         </h2>
-                        <div className="grid gap-8 md:grid-cols-2">
+                        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
                             <ServiceCard
                                 icon={<FaBriefcase />}
                                 title="Office Cleaning"
@@ -98,6 +99,39 @@ export default function ServicesPage() {
                                     "High dusting",
                                     "Loading dock cleaning",
                                     "Equipment cleaning",
+                                ]}
+                            />
+                            <ServiceCard
+                                icon={<FaStore />}
+                                title="Retail Spaces"
+                                desc="Keep your storefront spotless and inviting. We work around your hours to ensure your retail space always makes a great first impression."
+                                features={[
+                                    "Showroom cleaning",
+                                    "Floor maintenance",
+                                    "Restroom sanitization",
+                                    "After-hours scheduling",
+                                ]}
+                            />
+                            <ServiceCard
+                                icon={<FaHospital />}
+                                title="Medical Facilities"
+                                desc="Thorough, compliant cleaning for medical and dental offices. We adhere to strict health standards to keep your facility safe and sterile."
+                                features={[
+                                    "Exam room sanitization",
+                                    "Biohazard-safe practices",
+                                    "Waiting area cleaning",
+                                    "OSHA-compliant procedures",
+                                ]}
+                            />
+                            <ServiceCard
+                                icon={<FaHardHat />}
+                                title="Post-Construction Cleaning"
+                                desc="Complete cleanup after renovations or construction projects. We handle all dust, debris, and detail work so your space is move-in ready."
+                                features={[
+                                    "Dust & debris removal",
+                                    "Window cleaning",
+                                    "Final detailing",
+                                    "Government project experience",
                                 ]}
                             />
                         </div>
@@ -153,17 +187,6 @@ export default function ServicesPage() {
                                     "Odor elimination",
                                 ]}
                             />
-                            <ServiceCard
-                                icon={<FaHardHat />}
-                                title="Post-Construction Cleaning"
-                                desc="Complete cleanup after renovations or construction. We handle all dust, debris, and detail work."
-                                features={[
-                                    "Dust removal",
-                                    "Debris cleanup",
-                                    "Window cleaning",
-                                    "Final detailing",
-                                ]}
-                            />
                         </div>
                     </div>
                 </div>
@@ -175,9 +198,6 @@ export default function ServicesPage() {
                 ButtonIcon={FaCalendarCheck}
                 buttonLink={"/contact"}
             />
-
         </>
     );
 }
-
-
