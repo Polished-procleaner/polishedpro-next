@@ -13,24 +13,23 @@ const navigation = {
     { name: "Warehouse Cleaning", href: "/services" },
     { name: "Retail Spaces", href: "/services" },
     { name: "Medical Facilities", href: "/services" },
+    { name: "Post-Construction Cleaning", href: "/services" },
   ],
   company: [
-    { name: "24/7 support", href: "#" },
+    { name: "4301 S Flamingo Rd, Suite 106, Davie, FL 33330", href: "https://maps.google.com/?q=4301+S+Flamingo+Rd+Suite+106+Davie+FL+33330" },
     { name: "(888) 262-6068", href: "tel:+18882626068" },
-    { name: "Flexible scheduling", href: "#" },
-    { name: "Free estimates available", href: "#" },
-    { name: "Email us", href: "mailto:info@polishedprocleaners.net" },
+    { name: "info@polishedprocleaners.net", href: "mailto:info@polishedprocleaners.net" },
+    { name: "Free estimates available", href: "/contact" },
+    { name: "Flexible scheduling", href: "/contact" },
   ],
   legal: [
-    { name: "License", href: "#" },
-    { name: "Terms of service", href: "#" },
+    { name: "Terms of service", href: "/terms-of-service" },
     { name: "Privacy policy", href: "/privacy-policy.pdf" },
   ],
   social: [
     {
       name: "Facebook",
       href: "https://www.facebook.com/polishedprocleaners",
-
       icon: (props) => (
         <svg fill="currentColor " viewBox="0 0 24 24" {...props}>
           <path
@@ -93,9 +92,15 @@ export default function Example() {
             <p className="text-sm/6 text-balance text-gray-600">
               &quot;Leave the Cleaning to Us&quot;
             </p>
+            <div className="text-sm text-gray-500 flex flex-col gap-1">
+              <span className="font-medium text-gray-700">Serving Fort Lauderdale, Broward County &amp; South Florida</span>
+              <a href="https://maps.google.com/?q=4301+S+Flamingo+Rd+Suite+106+Davie+FL+33330" target="_blank" rel="noopener noreferrer" className="hover:text-sky-500">
+                4301 S Flamingo Rd, Suite 106<br />Davie, FL 33330
+              </a>
+            </div>
             <div className="flex gap-x-6">
               {navigation.social.map((item) => (
-                <a
+                
                   key={item.name}
                   href={item.href}
                   className="text-sky-500 hover:text-sky-600"
@@ -115,7 +120,7 @@ export default function Example() {
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.solutions.map((item) => (
                     <li key={item.name}>
-                      <a
+                      
                         href={item.href}
                         className="text-sm/6 text-gray-600 hover:text-gray-900"
                       >
@@ -132,7 +137,7 @@ export default function Example() {
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.support.map((item) => (
                     <li key={item.name}>
-                      <a
+                      
                         href={item.href}
                         className="text-sm/6 text-gray-600 hover:text-gray-900"
                       >
@@ -151,7 +156,7 @@ export default function Example() {
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.company.map((item) => (
                     <li key={item.name}>
-                      <a
+                      
                         href={item.href}
                         className="text-sm/6 text-gray-600 hover:text-gray-900"
                       >
@@ -166,7 +171,7 @@ export default function Example() {
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.legal.map((item) => (
                     <li key={item.name}>
-                      <a
+                      
                         href={item.href}
                         className="text-sm/6 text-gray-600 hover:text-gray-900"
                       >
@@ -184,7 +189,7 @@ export default function Example() {
             PolishedPro Cleaners. All rights reserved. | Leave the Cleaning to
             Us.
           </p>
-          <a
+          
             href="https://www.tiendabandera.com/"
             target="_blank"
             rel="noopener noreferrer"
