@@ -94,10 +94,10 @@ function OurWorks() {
 export default function HomeSections() {
   return (
     <>
-      <section className="relative flex items-center min-h-[calc(100vh-120px)] overflow-hidden">
+      <section className="relative flex items-center min-h-[calc(100vh-120px)]">
         <div className="absolute inset-0 bg-linear-to-r from-white/90 via-white/90 to-white/60 md:to-transparent z-1 w-full md:w-[70%]" />
         <div className="absolute inset-0 bg-[url('https://static.wixstatic.com/media/02498f_1584ba7b2af84b1bbbd0f68057f8cb07~mv2.jpeg')] bg-cover bg-center z-0" />
-        <Container classNameParent="z-3 w-full" className="flex flex-col md:flex-row items-center justify-between gap-8 py-16 md:py-0">
+        <Container classNameParent="z-3 w-full" className="flex flex-col md:flex-row items-center justify-between gap-8 py-16">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={containerVariant} className="flex flex-col gap-6 w-full">
             <motion.h1 variants={fadeInUpVariant} className="h1 text-gray-900">
               Transform Your Space with{" "}
@@ -122,7 +122,7 @@ export default function HomeSections() {
               </Link>
             </motion.div>
           </motion.div>
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeInUpVariant} className="p-6 flex flex-col gap-6 w-full max-w-lg bg-black/20 backdrop-blur-2xl rounded-2xl shadow-2xl border border-gray-50/30">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeInUpVariant} className="p-8 flex flex-col gap-6 w-full max-w-lg bg-black/20 backdrop-blur-2xl rounded-2xl shadow-2xl border border-gray-50/30">
             <h2 className="text-2xl font-semibold text-white">Get Your Free Quote</h2>
             <HomeForm />
           </motion.div>
