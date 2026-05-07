@@ -1,149 +1,180 @@
+"use client";
+
+import Container from "./Container";
 import Image from "next/image";
-import Container from "./design/Container";
+import { motion } from "motion/react";
+import { FaUsers, FaStar, FaHandshake, FaRocket, FaPlay } from "react-icons/fa";
+import { services } from "@/constants";
+import { containerVariant, fadeInUpVariant, stepVariant } from "@/constants/animationVariants";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import Link from "next/link";
+import { CalendarCheck } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Features from "./SectionFeatures";
+import HomeForm from "../HomeForm";
+import AboutSection from "../AboutSection";
+import BadgeTitle from "./BadgeTitle";
 
-const navigation = {
-  solutions: [
-    { name: "Standard Cleaning", href: "/services" },
-    { name: "Deep Cleaning", href: "/services" },
-    { name: "Move-In/Move-Out", href: "/services" },
-    { name: "Airbnb Cleaning", href: "/services" },
-  ],
-  support: [
-    { name: "Office Cleaning", href: "/services" },
-    { name: "Warehouse Cleaning", href: "/services" },
-    { name: "Retail Spaces", href: "/services" },
-    { name: "Medical Facilities", href: "/services" },
-    { name: "Post-Construction Cleaning", href: "/services" },
-  ],
-  company: [
-    { name: "4301 S Flamingo Rd, Suite 106, Davie, FL 33330", href: "https://maps.google.com/?q=4301+S+Flamingo+Rd+Suite+106+Davie+FL+33330" },
-    { name: "(888) 262-6068", href: "tel:+18882626068" },
-    { name: "info@polishedprocleaners.net", href: "mailto:info@polishedprocleaners.net" },
-    { name: "Free estimates available", href: "/contact" },
-    { name: "Flexible scheduling", href: "/contact" },
-  ],
-  legal: [
-    { name: "Terms of service", href: "/terms-of-service" },
-    { name: "Privacy policy", href: "/privacy-policy.pdf" },
-  ],
-  social: [
-    {
-      name: "Facebook",
-      href: "https://www.facebook.com/polishedprocleaners",
-      icon: (props) => (
-        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-          <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
-        </svg>
-      ),
-    },
-    {
-      name: "Instagram",
-      href: "https://www.instagram.com/polishedpro.cleaners",
-      icon: (props) => (
-        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-          <path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd" />
-        </svg>
-      ),
-    },
-    {
-      name: "TikTok",
-      href: "https://www.tiktok.com/@polishedprocleaners",
-      icon: (props) => (
-        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
-        </svg>
-      ),
-    },
-    {
-      name: "SMS",
-      href: "sms:+18882626068",
-      icon: (props) => (
-        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-          <path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3 .97 4.29L2 22l5.71-.97C9 21.64 10.46 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.38 0-2.68-.29-3.86-.81l-.28-.13-2.82.48.48-2.82-.13-.28C4.89 14.68 4.6 13.38 4.6 12c0-4.08 3.32-7.4 7.4-7.4s7.4 3.32 7.4 7.4-3.32 7.4-7.4 7.4z" />
-        </svg>
-      ),
-    },
-  ],
-};
-
-const PrivacyLink = () => (
-  <a href="/privacy-policy.pdf" target="_blank" rel="noopener noreferrer" className="text-sky-500 hover:text-sky-600">Privacy policy</a>
-);
-
-export default function NewFooter() {
+function ServiceCard({ item }) {
   return (
-    <footer className="bg-white">
-      <Container className="pt-16 pb-8 sm:pt-24 lg:pt-2">
-        <div className="mb-9 border-t border-gray-900/10 pt-8 sm:mb-12 lg:mb-17"></div>
-        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div className="space-y-8">
-            <Image src="/images/logo.png" alt="PolishedPro Cleaners" width={50} height={50} className="h-[100px] w-auto" unoptimized />
-            <p className="text-sm leading-6 text-gray-600">Leave the Cleaning to Us</p>
-            <div className="text-sm text-gray-500 flex flex-col gap-1">
-              <span className="font-medium text-gray-700">Serving Fort Lauderdale, Broward County &amp; South Florida</span>
-              <span>4301 S Flamingo Rd, Suite 106, Davie, FL 33330</span>
-            </div>
-            <div className="flex gap-x-6">
-              {navigation.social.map((item) => (
-                <a key={item.name} href={item.href} className="text-sky-500 hover:text-sky-600">
-                  <span className="sr-only">{item.name}</span>
-                  <item.icon aria-hidden="true" className="size-6" />
-                </a>
-              ))}
-            </div>
-          </div>
-          <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm font-semibold leading-6 text-sky-500">Residential Services</h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.solutions.map((item) => (
-                    <li key={item.name}>
-                      <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">{item.name}</a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-sky-500">Commercial Services</h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.support.map((item) => (
-                    <li key={item.name}>
-                      <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">{item.name}</a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm font-semibold leading-6 text-sky-500">Contact Us</h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.company.map((item) => (
-                    <li key={item.name}>
-                      <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">{item.name}</a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-sky-500">Legal</h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.legal.map((item) => (
-                    <li key={item.name}>
-                      <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">{item.name}</a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
+    <motion.div variants={fadeInUpVariant} className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl group">
+      <Image src={item.imageUrl} alt={item.title} className="w-full h-[500px] object-cover group-hover:scale-110 transition-transform duration-500" width={1200} height={500} unoptimized />
+      <div className="absolute bottom-0 left-0 right-0 p-6">
+        <div className="absolute inset-0 -top-20 backdrop-blur-2xl" style={{ maskImage: "linear-gradient(to top, black 30%, transparent 100%)", WebkitMaskImage: "linear-gradient(to top, black 30%, transparent 100%)" }} />
+        <div className="absolute inset-0 -top-20 bg-linear-to-t from-black/60 via-black/30 to-transparent" />
+        <div className="relative z-10">
+          <h2 className="text-2xl font-semibold text-white mb-2 drop-shadow-lg">{item.title}</h2>
+          <p className="text-white/95 text-sm leading-relaxed drop-shadow-md">{item.description}</p>
         </div>
-        <div className="mt-9 border-t border-gray-900/10 pt-8 sm:mt-12 lg:mt-17 flex flex-col sm:flex-row justify-between items-center gap-3">
-          <p className="text-sm leading-6 text-gray-600">PolishedPro Cleaners. All rights reserved. | Leave the Cleaning to Us.</p>
-          <a href="https://www.tiendabandera.com/" target="_blank" rel="noopener noreferrer" className="text-sm leading-6 text-theme font-semibold">Created by Tienda Bandera</a>
+      </div>
+    </motion.div>
+  );
+}
+
+function WhyChooseUs() {
+  const items = [
+    { title: "Eco-friendly products", description: "We use eco-friendly products to ensure that our cleaning services are environmentally responsible.", icon: <FaUsers className="size-6" /> },
+    { title: "Premium 5-Star Care", description: "Our consistently high ratings reflect our commitment to exceeding expectations on every single job.", icon: <FaStar className="size-6" /> },
+    { title: "Personal Relationships", description: "We believe in building lasting relationships with our clients based on trust, reliability, and exceptional service.", icon: <FaHandshake className="size-6" /> },
+    { title: "Quick Response", description: "Need cleaning on short notice? We're known for our flexibility and ability to accommodate urgent requests.", icon: <FaRocket className="size-6" /> },
+  ];
+  return (
+    <Container classNameParent={"bg-gray-100 relative isolate overflow-hidden"} className={"py-16 sm:py-24 flex flex-col gap-16"}>
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={stepVariant} className="flex items-center justify-between gap-6">
+        <div className="flex flex-col gap-2">
+          <BadgeTitle>Trust &amp; Quality</BadgeTitle>
+          <h2 className="h2 text-gray-900">Why Customers Choose Us</h2>
         </div>
+        <p className="text-gray-500 max-w-xl text-pretty italic leading-relaxed drop-shadow-lg">We are a team of passionate professionals dedicated to delivering exceptional cleaning services. Our commitment to quality and customer satisfaction is unwavering.</p>
+      </motion.div>
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={containerVariant} className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {items.map((item, i) => (
+          <motion.div key={i} variants={stepVariant} whileHover={{ scale: 1.08 }} transition={{ type: "spring", stiffness: 300, damping: 20 }} className="rounded-2xl bg-white p-8 relative shadow-sm flex flex-col gap-6 overflow-hidden">
+            <span className="absolute left-0 top-0 h-1 w-full origin-center bg-linear-to-r from-sky-500 to-green-500 transition-transform duration-300 scale-x-100" />
+            <div className="size-12 rounded-full bg-linear-to-br from-sky-500 to-green-500 text-white flex items-center justify-center">{item.icon}</div>
+            <div className="flex flex-col gap-2">
+              <h3 className="text-xl font-semibold text-gray-900 drop-shadow-lg">{item.title}</h3>
+              <div className="text-sm text-gray-500">{item.description}</div>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </Container>
+  );
+}
+
+function OurWorks() {
+  const images = [
+    "https://static.wixstatic.com/media/02498f_be51d968845248379cba9e1c019a89da~mv2.jpg",
+    "https://static.wixstatic.com/media/02498f_90c6fd391f2f4a28a46a9ce828435f48~mv2.jpg",
+    "https://static.wixstatic.com/media/02498f_4917f176445c487380ad511cd184242e~mv2.jpg",
+    "https://static.wixstatic.com/media/02498f_a5a78a9241ca4c90927645f34441accb~mv2.jpeg",
+    "https://static.wixstatic.com/media/02498f_40aeeccca5aa4c9db4bbd3b570e0a16b~mv2.jpg",
+  ];
+  return (
+    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeInUpVariant}>
+      <Carousel opts={{ align: "start", loop: true }} plugins={[Autoplay({ delay: 2000 })]} className="w-full">
+        <CarouselContent className="-ml-4">
+          {images.map((image, index) => (
+            <CarouselItem key={index} className="pl-4 basis-full xs:basis-1/2 lg:basis-1/3 rounded-2xl aspect-3/2">
+              <Image src={image} alt={`Cleaning work ${index + 1}`} width={600} height={400} className="size-full object-cover rounded-2xl" />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <div className="flex justify-center gap-2 mt-8">
+          <CarouselPrevious className="static translate-y-0 translate-x-0" />
+          <CarouselNext className="static translate-y-0 translate-x-0" />
+        </div>
+      </Carousel>
+    </motion.div>
+  );
+}
+
+export default function HomeSections() {
+  return (
+    <>
+      <section className="relative flex items-center min-h-[calc(100vh-120px)] overflow-hidden">
+        <div className="absolute inset-0 bg-linear-to-r from-white/90 via-white/90 to-white/60 md:to-transparent z-1 w-full md:w-[70%]" />
+        <div className="absolute inset-0 bg-[url('https://static.wixstatic.com/media/02498f_1584ba7b2af84b1bbbd0f68057f8cb07~mv2.jpeg')] bg-cover bg-center z-0" />
+        <Container classNameParent="z-3 w-full" className="flex flex-col md:flex-row items-center justify-between gap-8 py-16 md:py-0">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={containerVariant} className="flex flex-col gap-6 w-full">
+            <motion.h1 variants={fadeInUpVariant} className="h1 text-gray-900">
+              Transform Your Space with{" "}
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-primary-blue to-primary-green">Professional Cleaning</span>
+            </motion.h1>
+            <motion.p variants={fadeInUpVariant} className="text-gray-500 max-w-2xl italic">
+              Experience professional cleaning designed to elevate the quality of your space. We focus on perfection, care, and hygiene, ensuring visible results from the very first moment.{" "}
+              <span className="not-italic font-medium text-gray-700">Proudly serving Fort Lauderdale, Broward County &amp; all of South Florida.</span>
+            </motion.p>
+            <motion.div variants={fadeInUpVariant} className="pt-2 flex items-center gap-4">
+              <Link href="/contact">
+                <Button variant="theme" size="lg" className="rounded-xl">
+                  <CalendarCheck className="size-5" />
+                  Book Now
+                </Button>
+              </Link>
+              <Link href="/services">
+                <Button variant="default" size="lg" className="rounded-xl">
+                  <FaPlay className="size-4" />
+                  Our Services
+                </Button>
+              </Link>
+            </motion.div>
+          </motion.div>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeInUpVariant} className="p-6 flex flex-col gap-6 w-full max-w-lg bg-black/20 backdrop-blur-2xl rounded-2xl shadow-2xl border border-gray-50/30">
+            <h2 className="text-2xl font-semibold text-white">Get Your Free Quote</h2>
+            <HomeForm />
+          </motion.div>
+        </Container>
+      </section>
+      <AboutSection />
+      <Features />
+      <div className="z-2 relative overflow-hidden">
+        <motion.div variants={fadeInUpVariant} className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10 aspect-video relative overflow-hidden">
+            <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
+              <source src="https://video.wixstatic.com/video/02498f_b4654a02ad1a46c98a1cebe76d727c93/720p/mp4/file.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div aria-hidden="true" className="relative">
+            <div className="absolute -inset-x-20 bottom-0 bg-linear-to-t from-white pt-[7%]" />
+          </div>
+        </motion.div>
+      </div>
+      <Container classNameParent="relative isolate" className="py-16 sm:py-24 flex flex-col gap-20">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={containerVariant} className="flex items-center flex-col gap-6">
+          <motion.div variants={fadeInUpVariant} className="flex items-center gap-4">
+            <BadgeTitle>Our Services</BadgeTitle>
+          </motion.div>
+          <motion.h2 variants={fadeInUpVariant} className="h2 text-gray-900 text-center">
+            Cleaning Services That Make a <span className="text-theme">Difference</span>
+          </motion.h2>
+          <motion.p variants={fadeInUpVariant} className="text-gray-500 max-w-3xl text-center">
+            Residential and Commercial Cleaning Services: professional solutions that keep your spaces spotless, comfortable, and ready for any occasion.
+          </motion.p>
+        </motion.div>
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={containerVariant} className="grid sm:grid-cols-2 items-center gap-6">
+          {services.map((service) => (
+            <ServiceCard key={service.title} item={service} />
+          ))}
+        </motion.div>
       </Container>
-    </footer>
+      <Container id="works" classNameParent="relative isolate" className="py-16 sm:py-24 flex flex-col gap-20">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={containerVariant} className="flex items-center flex-col gap-6">
+          <motion.div variants={fadeInUpVariant} className="flex items-center gap-4">
+            <BadgeTitle>Our Works</BadgeTitle>
+          </motion.div>
+          <motion.h2 variants={fadeInUpVariant} className="h2 text-gray-900 text-center">
+            See the <span className="text-theme">Difference</span> Yourself
+          </motion.h2>
+          <motion.p variants={fadeInUpVariant} className="text-gray-500 max-w-2xl text-center">
+            Experience how PolishedPro transforms spaces with care and precision — authentic results from real projects in our local community.
+          </motion.p>
+        </motion.div>
+        <OurWorks />
+      </Container>
+      <WhyChooseUs />
+    </>
   );
 }
