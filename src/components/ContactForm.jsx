@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -13,47 +15,46 @@ export default function ContactForm() {
     email: "",
     phone: "",
     service: "",
-    terms: "False",
-    terms2: "False",
+    smsConsent: "",
   });
 
   const router = useRouter();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSmsConsent = (value) => {
+    setFormData((prev) => ({ ...prev, smsConsent: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!formData.smsConsent) {
+      alert("Please select a text message preference before submitting.");
+      return;
+    }
+
     setIsSubmitting(true);
 
-    // Crear la fecha en formato legible
     const now = new Date();
-    const date = now.toLocaleDateString("es-ES", {
+    const date = now.toLocaleDateString("en-US", {
       year: "numeric",
       month: "long",
       day: "numeric",
     });
 
-    // Agregar la fecha al payload
-    const dataToSend = {
-      ...formData,
-      date: date,
-    };
+    const dataToSend = { ...formData, date };
 
     const response = await fetch(
       "https://hook.us1.make.com/1wsap6a9eiocgulf7rlij660a8ah1kis",
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(dataToSend),
-      },
+      }
     );
 
     if (response.ok) {
@@ -64,6 +65,7 @@ export default function ContactForm() {
         phone: formData.phone,
       });
 
+      window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: "page_view",
         page_path: "/gracias",
@@ -71,33 +73,31 @@ export default function ContactForm() {
       });
 
       router.push("/thanks");
-
       return;
     }
 
+    setIsSubmitting(false);
     setSubmitStatus("error");
-    return;
   };
 
   return (
-    <form className="w-full flex flex-col gap-8 " onSubmit={handleSubmit}>
+    <form className="w-full flex flex-col gap-6" onSubmit={handleSubmit}>
       <div className="flex flex-col gap-4">
         <Input
           id="name"
           name="name"
           placeholder="Name"
-          className={"bg-white rounded-lg"}
+          className="bg-white rounded-lg"
           value={formData.name}
           onChange={handleInputChange}
           required
         />
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Input
             id="email"
             name="email"
             placeholder="Email"
-            className={"bg-white rounded-lg"}
+            className="bg-white rounded-lg"
             required
             value={formData.email}
             onChange={handleInputChange}
@@ -107,8 +107,8 @@ export default function ContactForm() {
             id="phone"
             name="phone"
             placeholder="Phone"
-            type={"number"}
-            className={"bg-white rounded-lg"}
+            type="tel"
+            className="bg-white rounded-lg"
             required
             value={formData.phone}
             onChange={handleInputChange}
@@ -125,73 +125,94 @@ export default function ContactForm() {
           <option value="">Select a service category</option>
           <option value="residential">Residential Cleaning</option>
           <option value="commercial">Commercial Cleaning</option>
-          <option value="specialized">Specialized Floor Cleaning</option>
         </select>
       </div>
 
-      <div className="flex flex-col gap-4 text-xs text-gray-500">
-        <p>
+      {/* SMS Consent — Grasshopper compliant */}
+      <div className="flex flex-col gap-3 p-4 bg-gray-50 rounded-xl border border-gray-200">
+        <p className="text-xs text-gray-600 leading-relaxed">
           Do you agree to receive text messages from{" "}
-          <span className="font-bold">Polishedpro Cleaners</span> sent from{" "}
-          <span className="font-bold">18882626068</span>?
-          <br />
-          Messages may include service-related communications, appointment
-          confirmations, reminders, customer support communications, and
-          marketing communications. You may reply STOP or UNSUBSCRIBE at any
-          time to end or unsubscribe, and after opting out you will receive a
-          final confirmation message. For assistance, reply HELP or contact
-          support at <span className="font-bold">18882626068</span>.
-          {/* Message frequency varies and may include{" "}
-          <span className="font-bold">
-            appointment confirmations, reminders, and customer support
-          </span>
-          . Message and data rates may apply. Reply STOP or UNSUBSCRIBE at any time
-          to end or unsubscribe. For assistance, reply HELP or contact support
-          at: <span className="font-bold">18882626068</span>. */}
+          <strong>PolishedPro Cleaners</strong> sent from{" "}
+          <strong>18882626068</strong>? Message frequency varies and may
+          include{" "}
+          <strong>
+            appointment confirmations, reminders, customer support, and
+            marketing.
+          </strong>{" "}
+          Message and data rates may apply. Reply <strong>STOP</strong> or{" "}
+          <strong>CANCEL</strong> at any time to end or unsubscribe. For
+          assistance, reply <strong>HELP</strong> or contact support at:{" "}
+          <strong>18882626068</strong>.
         </p>
-        <div className="flex items-center gap-2">
-          <input
-            type="checkbox"
-            id="terms"
-            name="terms"
-            onChange={handleInputChange}
-          />
-          <label htmlFor="terms">
-            I agree to receive text messages from{" "}
-            <span className="font-bold">Polishedpro Cleaners</span> sent from
-            <span className="font-bold">18882626068</span>.
-          </label>
-        </div>
-        <div className="flex items-center gap-2">
-          <input
-            type="checkbox"
-            id="terms2"
-            name="terms2"
-            onChange={handleInputChange}
-          />
-          <label htmlFor="terms2">
-            I No, I do not agree to receive text messages from{" "}
-            <span className="font-bold">Polishedpro Cleaners</span>.
-          </label>
-        </div>
 
-        <p>
+        <label className="flex items-start gap-3 cursor-pointer">
+          <input
+            type="radio"
+            name="smsConsent"
+            value="yes_all"
+            checked={formData.smsConsent === "yes_all"}
+            onChange={() => handleSmsConsent("yes_all")}
+            className="mt-1 accent-sky-500"
+          />
+          <span className="text-xs text-gray-700 leading-relaxed">
+            I agree to receive text messages from PolishedPro Cleaners sent
+            from <strong>18882626068</strong> about appointment confirmations,
+            reminders, customer support, and marketing.
+          </span>
+        </label>
+
+        <label className="flex items-start gap-3 cursor-pointer">
+          <input
+            type="radio"
+            name="smsConsent"
+            value="yes_service_only"
+            checked={formData.smsConsent === "yes_service_only"}
+            onChange={() => handleSmsConsent("yes_service_only")}
+            className="mt-1 accent-sky-500"
+          />
+          <span className="text-xs text-gray-700 leading-relaxed">
+            I agree to receive text messages from PolishedPro Cleaners sent
+            from <strong>18882626068</strong> about appointment confirmations,
+            reminders, and customer support only.
+          </span>
+        </label>
+
+        <label className="flex items-start gap-3 cursor-pointer">
+          <input
+            type="radio"
+            name="smsConsent"
+            value="no"
+            checked={formData.smsConsent === "no"}
+            onChange={() => handleSmsConsent("no")}
+            className="mt-1 accent-sky-500"
+          />
+          <span className="text-xs text-gray-700 leading-relaxed">
+            No, I do not want to receive text messages from PolishedPro
+            Cleaners.
+          </span>
+        </label>
+
+        <p className="text-xs text-gray-500">
           See our{" "}
-          <a href="/privacy-policy.pdf" target="_blank" className="underline">
+          
+            href="/privacy-policy.pdf"
+            target="_blank"
+            className="underline text-sky-600"
+          >
             Privacy Policy
           </a>{" "}
           for details on how we handle your information.
         </p>
       </div>
 
-      <Button variant={"theme"} type="submit" disabled={isSubmitting}>
+      <Button variant="theme" type="submit" disabled={isSubmitting}>
         Send Message{" "}
         {isSubmitting && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
       </Button>
 
       {submitStatus === "error" && (
-        <p className="text-red-500">
-          An error occurred while submitting the form. Try again later.
+        <p className="text-red-500 text-sm">
+          An error occurred while submitting the form. Please try again later.
         </p>
       )}
     </form>
