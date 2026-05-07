@@ -137,7 +137,6 @@ export default function NewFooter() {
         </div>
         <div className="mt-9 border-t border-gray-900/10 pt-8 sm:mt-12 lg:mt-17 flex flex-col sm:flex-row justify-between items-center gap-3">
           <p className="text-sm leading-6 text-gray-600">PolishedPro Cleaners. All rights reserved. | Leave the Cleaning to Us.</p>
-          <a href="https://www.tiendabandera.com/" target="_blank" rel="noopener noreferrer" className="text-sm leading-6 text-theme font-semibold">Created by Tienda Bandera</a>
         </div>
       </Container>
     </footer>
