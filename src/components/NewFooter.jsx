@@ -66,6 +66,10 @@ const navigation = {
   ],
 };
 
+const PrivacyLink = () => (
+  <a href="/privacy-policy.pdf" target="_blank" rel="noopener noreferrer" className="text-sky-500 hover:text-sky-600">Privacy policy</a>
+);
+
 export default function NewFooter() {
   return (
     <footer className="bg-white">
@@ -73,22 +77,11 @@ export default function NewFooter() {
         <div className="mb-9 border-t border-gray-900/10 pt-8 sm:mb-12 lg:mb-17"></div>
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8">
-            <Image
-              src="/images/logo.png"
-              alt="PolishedPro Cleaners"
-              width={50}
-              height={50}
-              className="h-[100px] w-auto"
-              unoptimized
-            />
-            <p className="text-sm leading-6 text-balance text-gray-600">
-              Leave the Cleaning to Us
-            </p>
+            <Image src="/images/logo.png" alt="PolishedPro Cleaners" width={50} height={50} className="h-[100px] w-auto" unoptimized />
+            <p className="text-sm leading-6 text-gray-600">Leave the Cleaning to Us</p>
             <div className="text-sm text-gray-500 flex flex-col gap-1">
               <span className="font-medium text-gray-700">Serving Fort Lauderdale, Broward County &amp; South Florida</span>
-              <a href="https://maps.google.com/?q=4301+S+Flamingo+Rd+Suite+106+Davie+FL+33330" target="_blank" rel="noopener noreferrer" className="hover:text-sky-500">
-                4301 S Flamingo Rd, Suite 106, Davie, FL 33330
-              </a>
+              <span>4301 S Flamingo Rd, Suite 106, Davie, FL 33330</span>
             </div>
             <div className="flex gap-x-6">
               {navigation.social.map((item) => (
@@ -147,12 +140,8 @@ export default function NewFooter() {
           </div>
         </div>
         <div className="mt-9 border-t border-gray-900/10 pt-8 sm:mt-12 lg:mt-17 flex flex-col sm:flex-row justify-between items-center gap-3">
-          <p className="text-sm leading-6 text-gray-600">
-            PolishedPro Cleaners. All rights reserved. | Leave the Cleaning to Us.
-          </p>
-          <a href="https://www.tiendabandera.com/" target="_blank" rel="noopener noreferrer" className="text-sm leading-6 text-theme font-semibold">
-            Created by Tienda Bandera
-          </a>
+          <p className="text-sm leading-6 text-gray-600">PolishedPro Cleaners. All rights reserved. | Leave the Cleaning to Us.</p>
+          <a href="https://www.tiendabandera.com/" target="_blank" rel="noopener noreferrer" className="text-sm leading-6 text-theme font-semibold">Created by Tienda Bandera</a>
         </div>
       </Container>
     </footer>
