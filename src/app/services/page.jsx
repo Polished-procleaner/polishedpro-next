@@ -1,10 +1,8 @@
 "use client";
 import {
     FaHome, FaBroom, FaTruck, FaBed, FaBriefcase, FaWarehouse,
-    FaPaintRoller, FaThLarge, FaCouch, FaHardHat, FaCalendarCheck,
-    FaStore, FaHospital
+    FaHardHat, FaCalendarCheck, FaStore, FaHospital
 } from "react-icons/fa";
-import { FaRug } from "react-icons/fa6";
 import CTASection from "@/components/CTASection";
 import ServiceCard from "@/components/ServiceCard";
 import PageHero from "@/components/PageHero";
@@ -19,6 +17,8 @@ export default function ServicesPage() {
 
             <section className="py-20 bg-white">
                 <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+
+                    {/* Residential */}
                     <div className="mb-20">
                         <h2 className="text-center font-space text-3xl font-bold mb-12 relative pb-4">
                             Residential Cleaning
@@ -137,60 +137,9 @@ export default function ServicesPage() {
                         </div>
                     </div>
 
-                    <div>
-                        <h2 className="text-center font-space text-3xl font-bold mb-12 relative pb-4">
-                            Specialized Floor Cleaning Services
-                            <span className="absolute left-1/2 -bottom-1.5 w-24 h-1 bg-gradient-to-r from-sky-500 to-green-500 -translate-x-1/2"></span>
-                        </h2>
-                        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-                            <ServiceCard
-                                icon={<FaRug />}
-                                title="Carpet Cleaning"
-                                desc="Advanced carpet cleaning that removes deep stains, odors, and allergens while restoring your carpet's original beauty."
-                                features={[
-                                    "Deep extraction",
-                                    "Stain treatment",
-                                    "Odor removal",
-                                    "Fiber protection",
-                                ]}
-                            />
-                            <ServiceCard
-                                icon={<FaPaintRoller />}
-                                title="Stripping & Waxing"
-                                desc="Professional floor restoration that brings surfaces back to life with premium stripping and waxing techniques."
-                                features={[
-                                    "Complete stripping",
-                                    "Premium wax application",
-                                    "High-shine finish",
-                                    "Protective coating",
-                                ]}
-                            />
-                            <ServiceCard
-                                icon={<FaThLarge />}
-                                title="Tile & Grout Cleaning"
-                                desc="Specialized equipment and techniques restore even the grimiest grout lines to their original condition."
-                                features={[
-                                    "Deep grout cleaning",
-                                    "Stain removal",
-                                    "Sanitization",
-                                    "Sealant application",
-                                ]}
-                            />
-                            <ServiceCard
-                                icon={<FaCouch />}
-                                title="Upholstery Cleaning"
-                                desc="Expert furniture care that removes stains and odors while preserving fabric integrity and extending furniture life."
-                                features={[
-                                    "Fabric analysis",
-                                    "Safe cleaning solutions",
-                                    "Stain treatment",
-                                    "Odor elimination",
-                                ]}
-                            />
-                        </div>
-                    </div>
                 </div>
             </section>
+
             <CTASection
                 title={"Ready to Get Started?"}
                 description={`Let us know what cleaning services you need and we'll provide a free, honest estimate.`}
