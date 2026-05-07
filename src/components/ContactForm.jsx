@@ -71,6 +71,10 @@ export default function ContactForm() {
     setSubmitStatus("error");
   };
 
+  const PrivacyLink = () => (
+    <a href="/privacy-policy.pdf" target="_blank" rel="noopener noreferrer" className="underline text-sky-600">Privacy Policy</a>
+  );
+
   return (
     <form className="w-full flex flex-col gap-6" onSubmit={handleSubmit}>
       <div className="flex flex-col gap-4">
@@ -121,65 +125,32 @@ export default function ContactForm() {
 
       <div className="flex flex-col gap-3 p-4 bg-gray-50 rounded-xl border border-gray-200">
         <p className="text-xs text-gray-600 leading-relaxed">
-          Do you agree to receive text messages from{" "}
-          <strong>PolishedPro Cleaners</strong> sent from{" "}
-          <strong>18882626068</strong>? Message frequency varies and may include{" "}
-          <strong>appointment confirmations, reminders, customer support, and marketing.</strong>{" "}
-          Message and data rates may apply. Reply <strong>STOP</strong> or{" "}
-          <strong>CANCEL</strong> at any time to unsubscribe. For assistance,
-          reply <strong>HELP</strong> or contact us at <strong>18882626068</strong>.
+          Do you agree to receive text messages from <strong>PolishedPro Cleaners</strong> sent from <strong>18882626068</strong>? Message frequency varies and may include <strong>appointment confirmations, reminders, customer support, and marketing.</strong> Message and data rates may apply. Reply <strong>STOP</strong> or <strong>CANCEL</strong> at any time to unsubscribe. For assistance reply <strong>HELP</strong> or contact us at <strong>18882626068</strong>.
         </p>
 
         <label className="flex items-start gap-3 cursor-pointer">
-          <input
-            type="radio"
-            name="smsConsent"
-            value="yes_all"
-            checked={formData.smsConsent === "yes_all"}
-            onChange={() => handleSmsConsent("yes_all")}
-            className="mt-1 accent-sky-500"
-          />
+          <input type="radio" name="smsConsent" value="yes_all" checked={formData.smsConsent === "yes_all"} onChange={() => handleSmsConsent("yes_all")} className="mt-1 accent-sky-500" />
           <span className="text-xs text-gray-700 leading-relaxed">
-            I agree to receive text messages from PolishedPro Cleaners sent from{" "}
-            <strong>18882626068</strong> about appointment confirmations,
-            reminders, customer support, and marketing.
+            I agree to receive text messages from PolishedPro Cleaners sent from <strong>18882626068</strong> about appointment confirmations, reminders, customer support, and marketing.
           </span>
         </label>
 
         <label className="flex items-start gap-3 cursor-pointer">
-          <input
-            type="radio"
-            name="smsConsent"
-            value="yes_service_only"
-            checked={formData.smsConsent === "yes_service_only"}
-            onChange={() => handleSmsConsent("yes_service_only")}
-            className="mt-1 accent-sky-500"
-          />
+          <input type="radio" name="smsConsent" value="yes_service_only" checked={formData.smsConsent === "yes_service_only"} onChange={() => handleSmsConsent("yes_service_only")} className="mt-1 accent-sky-500" />
           <span className="text-xs text-gray-700 leading-relaxed">
-            I agree to receive text messages from PolishedPro Cleaners sent from{" "}
-            <strong>18882626068</strong> about appointment confirmations,
-            reminders, and customer support only.
+            I agree to receive text messages from PolishedPro Cleaners sent from <strong>18882626068</strong> about appointment confirmations, reminders, and customer support only.
           </span>
         </label>
 
         <label className="flex items-start gap-3 cursor-pointer">
-          <input
-            type="radio"
-            name="smsConsent"
-            value="no"
-            checked={formData.smsConsent === "no"}
-            onChange={() => handleSmsConsent("no")}
-            className="mt-1 accent-sky-500"
-          />
+          <input type="radio" name="smsConsent" value="no" checked={formData.smsConsent === "no"} onChange={() => handleSmsConsent("no")} className="mt-1 accent-sky-500" />
           <span className="text-xs text-gray-700 leading-relaxed">
             No, I do not want to receive text messages from PolishedPro Cleaners.
           </span>
         </label>
 
         <p className="text-xs text-gray-500">
-          See our{" "}
-          <a href="/privacy-policy.pdf" target="_blank" className="underline text-sky-600">Privacy Policy</a>
-          {" "}for details on how we handle your information.
+          See our <PrivacyLink /> for details on how we handle your information.
         </p>
       </div>
 
@@ -189,9 +160,7 @@ export default function ContactForm() {
       </Button>
 
       {submitStatus === "error" && (
-        <p className="text-red-500 text-sm">
-          An error occurred. Please try again later.
-        </p>
+        <p className="text-red-500 text-sm">An error occurred. Please try again later.</p>
       )}
     </form>
   );
