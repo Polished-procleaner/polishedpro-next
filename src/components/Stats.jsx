@@ -11,16 +11,16 @@ export default function Stats() {
 
   const stats = [
     {
-      num: "5+",
-      label: "Years of Experience",
-      icon: <Award className="size-5" strokeWidth={1.5} />,
-      badge: "Experiences",
+      num: "77+",
+      label: "5-Star Google Reviews",
+      icon: <Star className="size-5" strokeWidth={1.5} />,
+      badge: "Reviews",
     },
     {
-      num: "500+",
-      label: "Happy Customers",
-      icon: <Smile className="size-5" strokeWidth={1.5} />,
-      badge: "Customers",
+      num: "1+",
+      label: "Year Serving South Florida",
+      icon: <Award className="size-5" strokeWidth={1.5} />,
+      badge: "Experience",
     },
     {
       num: "100%",

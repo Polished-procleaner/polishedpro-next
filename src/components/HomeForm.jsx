@@ -32,8 +32,7 @@ export default function HomeForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.smsConsent) {
-      alert("Please select a text message preference before submitting.");
-      return;
+      setFormData((prev) => ({ ...prev, smsConsent: "no" }));
     }
     setIsSubmitting(true);
     const now = new Date();
@@ -86,25 +85,11 @@ export default function HomeForm() {
         </select>
       </div>
 
-      <div className="bg-white/20 rounded-xl p-4 flex flex-col gap-3 border border-white/30">
-        <p className="text-xs text-white leading-relaxed">
-          Do you agree to receive text messages from <strong>PolishedPro Cleaners</strong> sent from <strong>18882626068</strong>? Message frequency varies and may include <strong>appointment confirmations, reminders, customer support, and marketing.</strong> Message and data rates may apply. Reply <strong>STOP</strong> or <strong>CANCEL</strong> at any time to unsubscribe. For assistance reply <strong>HELP</strong> or contact us at <strong>18882626068</strong>.
-        </p>
-        <label className="flex items-start gap-3 cursor-pointer">
-          <input type="radio" name="smsConsent" value="yes_all" checked={formData.smsConsent === "yes_all"} onChange={() => handleSmsConsent("yes_all")} className="mt-1 accent-sky-400" />
-          <span className="text-xs text-white leading-relaxed">I agree to receive text messages from PolishedPro Cleaners sent from <strong>18882626068</strong> about appointment confirmations, reminders, customer support, and marketing.</span>
-        </label>
-        <label className="flex items-start gap-3 cursor-pointer">
-          <input type="radio" name="smsConsent" value="yes_service_only" checked={formData.smsConsent === "yes_service_only"} onChange={() => handleSmsConsent("yes_service_only")} className="mt-1 accent-sky-400" />
-          <span className="text-xs text-white leading-relaxed">I agree to receive text messages from PolishedPro Cleaners sent from <strong>18882626068</strong> about appointment confirmations, reminders, and customer support only.</span>
-        </label>
-        <label className="flex items-start gap-3 cursor-pointer">
-          <input type="radio" name="smsConsent" value="no" checked={formData.smsConsent === "no"} onChange={() => handleSmsConsent("no")} className="mt-1 accent-sky-400" />
-          <span className="text-xs text-white leading-relaxed">No, I do not want to receive text messages from PolishedPro Cleaners.</span>
-        </label>
-        <p className="text-xs text-white/70">
-          See our <a href="/privacy-policy.pdf" target="_blank" rel="noopener noreferrer" className="underline text-white">Privacy Policy</a> for details on how we handle your information.
-        </p>
+      <div className="bg-white/20 rounded-xl p-3 flex items-start gap-3 border border-white/30">
+        <input type="checkbox" name="smsConsent" checked={formData.smsConsent === "yes_all"} onChange={(e) => handleSmsConsent(e.target.checked ? "yes_all" : "")} className="mt-0.5 accent-sky-400 shrink-0" />
+        <span className="text-xs text-white leading-relaxed">
+          I agree to receive text messages from <strong>PolishedPro Cleaners</strong> (18882626068). Msg &amp; data rates may apply. Reply <strong>STOP</strong> to unsubscribe. <a href="/privacy-policy.pdf" target="_blank" rel="noopener noreferrer" className="underline text-white/80">Privacy Policy</a>.
+        </span>
       </div>
 
       <Button variant="theme" type="submit" disabled={isSubmitting}>
