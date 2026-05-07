@@ -12,11 +12,4 @@ export const services = [
       "Expert cleaning for offices and businesses to maintain a clean and productive space.",
     imageUrl: "/images/services/2.jpg",
   },
-  {
-    title: "Specialized Floor Care",
-    description:
-      "Professional floor care for all surfaces, restoring shine and extending their life.",
-    imageUrl:
-      "https://static.wixstatic.com/media/02498f_e8945cc18f4c4221b0ed03d652174014~mv2.jpg",
-  },
 ];
