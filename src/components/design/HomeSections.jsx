@@ -15,6 +15,7 @@ import Features from "./SectionFeatures";
 import HomeForm from "../HomeForm";
 import AboutSection from "../AboutSection";
 import BadgeTitle from "./BadgeTitle";
+import OurStory from "../OurStory";
 
 function ServiceCard({ item }) {
   return (
@@ -175,6 +176,7 @@ export default function HomeSections() {
         <OurWorks />
       </Container>
       <WhyChooseUs />
+      <OurStory />
     </>
   );
 }
