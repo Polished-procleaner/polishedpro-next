@@ -14,18 +14,17 @@ import { ChevronDown } from "lucide-react";
 
 const NAV = [
   { href: "/", label: "Home" },
-  {
-    label: "About Us",
-    dropdown: [
-      { href: "/about", label: "Our Story" },
-      { href: "/why-choose-us", label: "Why Choose Us" },
-      { href: "/faq", label: "FAQ" },
-    ],
-  },
   { href: "/services", label: "Services" },
   { href: "/#works", label: "Our Work" },
   { href: "/process", label: "Process" },
   { href: "/#testimonials", label: "Reviews" },
+  {
+    label: "About Us",
+    dropdown: [
+      { href: "/why-choose-us", label: "Why Choose Us" },
+      { href: "/faq", label: "FAQ" },
+    ],
+  },
   { href: "/contact", label: "Contact us" },
 ];
 
