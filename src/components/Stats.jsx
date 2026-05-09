@@ -109,8 +109,7 @@ export default function Stats() {
             <div
               ref={(el) => (countersRef.current[i] = el)}
               data-target={stat.num}
-              className="stat-number font-space font-bold tracking-tight text-4xl md:text-5xl mb-4"
-              style={{ background: "linear-gradient(135deg, #F59E0B, #D97706)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}
+              className="stat-number font-space font-bold tracking-tight text-4xl md:text-5xl bg-linear-to-r from-sky-500 to-green-500 bg-clip-text text-transparent mb-4"
             >
               {stat.num}
             </div>
