@@ -176,7 +176,6 @@ export default function HomeSections() {
         <OurWorks />
       </Container>
       <WhyChooseUs />
-      <OurStory />
     </>
   );
 }

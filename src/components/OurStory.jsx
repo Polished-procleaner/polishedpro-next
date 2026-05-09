@@ -110,21 +110,20 @@ export default function OurStory() {
           </motion.div>
           <motion.div variants={containerVariant} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { emoji: "🌿", title: "Eco-Friendly Products", desc: "We use environmentally responsible cleaning products that are safe for people, pets, and the planet." },
-              { emoji: "⭐", title: "Premium 5-Star Care", desc: "77+ five-star Google reviews reflect our commitment to exceeding expectations on every single job." },
-              { emoji: "🤝", title: "Trusted Relationships", desc: "We build lasting relationships with clients through consistency, integrity, and personalized care." },
-              { emoji: "⚡", title: "Quick Response", desc: "Need cleaning on short notice? We are known for our flexibility and ability to accommodate urgent requests." },
-              { emoji: "🔒", title: "Fully Insured & Bonded", desc: "Complete peace of mind — your property and our team are fully protected on every job." },
-              { emoji: "👩‍💼", title: "Women-Owned Business", desc: "Founded by a mother and daughter team proud to serve South Florida with care and professionalism." },
-              { emoji: "🏥", title: "Proper Sanitation", desc: "We go beyond surface cleaning with industry-standard sanitation practices that truly protect your space." },
-              { emoji: "📅", title: "Flexible Scheduling", desc: "We work around your schedule — offering routine maintenance, one-time deep cleans, and everything in between." },
+              { title: "Eco-Friendly Products", desc: "We use environmentally responsible cleaning products that are safe for people, pets, and the planet." },
+              { title: "Premium 5-Star Care", desc: "77+ five-star Google reviews reflect our commitment to exceeding expectations on every single job." },
+              { title: "Trusted Relationships", desc: "We build lasting relationships with clients through consistency, integrity, and personalized care." },
+              { title: "Quick Response", desc: "Need cleaning on short notice? We are known for our flexibility and ability to accommodate urgent requests." },
+              { title: "Fully Insured & Bonded", desc: "Complete peace of mind — your property and our team are fully protected on every job." },
+              { title: "Women-Owned Business", desc: "Founded by a mother and daughter team proud to serve South Florida with care and professionalism." },
+              { title: "Proper Sanitation", desc: "We go beyond surface cleaning with industry-standard sanitation practices that truly protect your space." },
+              { title: "Flexible Scheduling", desc: "We work around your schedule — offering routine maintenance, one-time deep cleans, and everything in between." },
             ].map((item, i) => (
               <motion.div
                 key={i}
                 variants={fadeInUpVariant}
                 className="bg-white rounded-2xl p-6 border border-sky-100 shadow-sm flex flex-col gap-3"
               >
-                <span className="text-3xl">{item.emoji}</span>
                 <h4 className="text-base font-semibold text-gray-900">{item.title}</h4>
                 <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
               </motion.div>
@@ -139,7 +138,6 @@ export default function OurStory() {
         >
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2">
-              <span className="text-2xl">👩‍💼</span>
               <span className="text-sm font-semibold uppercase tracking-widest opacity-90">Women-Owned Business</span>
             </div>
             <h3 className="text-2xl font-semibold">
