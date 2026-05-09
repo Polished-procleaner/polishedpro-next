@@ -2,7 +2,6 @@
 
 import { motion } from "motion/react";
 import { useRef, useEffect, useState } from "react";
-import { Award, Clock, Smile, Star } from "lucide-react";
 import { fadeInUpVariant } from "@/constants/animationVariants";
 
 export default function Stats() {
@@ -13,25 +12,25 @@ export default function Stats() {
     {
       num: "5+",
       label: "Years of Experience",
-      icon: <Award className="size-5" strokeWidth={1.5} />,
-      badge: "Experiences",
+      emoji: "🏆",
+      badge: "Experience",
     },
     {
       num: "100+",
       label: "Happy Customers",
-      icon: <Smile className="size-5" strokeWidth={1.5} />,
+      emoji: "😊",
       badge: "Customers",
     },
     {
       num: "100%",
       label: "Satisfaction Rate",
-      icon: <Star className="size-5" strokeWidth={1.5} />,
+      emoji: "⭐",
       badge: "Satisfaction",
     },
     {
       num: "24/7",
       label: "Support Available",
-      icon: <Clock className="size-5" strokeWidth={1.5} />,
+      emoji: "🕐",
       badge: "Support",
     },
   ];
@@ -99,21 +98,19 @@ export default function Stats() {
           className="rounded-2xl bg-gray-100 p-8 relative shadow-sm"
         >
           <div className="flex items-center gap-2 mb-10">
-            <div className="px-5 py-2 rounded-full bg-white text-sm font-medium text-gray-900">
+            <div className="px-5 py-2 rounded-full text-sm font-semibold" style={{ background: "linear-gradient(135deg, #F59E0B, #D97706)", color: "#fff" }}>
               {stat.badge}
             </div>
-            <div className="flex items-center justify-center gap-2 size-9 rounded-full bg-white">
-              {stat.icon}
+            <div className="flex items-center justify-center size-9 rounded-full text-xl" style={{ background: "linear-gradient(135deg, #FEF3C7, #FDE68A)", border: "1px solid #F59E0B" }}>
+              {stat.emoji}
             </div>
           </div>
           <div className="flex flex-col gap-2">
             <div
               ref={(el) => (countersRef.current[i] = el)}
               data-target={stat.num}
-              className="stat-number font-space font-bold tracking-tight
-                     text-4xl md:text-5xl
-                     bg-linear-to-r from-sky-500 to-green-500 bg-clip-text text-transparent
-                     mb-4"
+              className="stat-number font-space font-bold tracking-tight text-4xl md:text-5xl mb-4"
+              style={{ background: "linear-gradient(135deg, #F59E0B, #D97706)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}
             >
               {stat.num}
             </div>
