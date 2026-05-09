@@ -49,7 +49,7 @@ export default function OurStory() {
             </div>
             <div className="flex flex-col gap-4 text-gray-600 leading-relaxed text-[15px]">
               <p>
-                At PolishedPro Cleaners, we believe a clean environment is more than appearance — it's about{" "}
+                At PolishedPro Cleaners, we believe a clean environment is more than appearance — it&apos;s about{" "}
                 <strong className="text-gray-800">health, safety, and peace of mind.</strong> As a women-owned
                 business founded by a mother and child team, we saw a growing need throughout South Florida for
                 cleaning services that truly prioritized sanitation, professionalism, and customer care.
