@@ -66,7 +66,7 @@ function WhyChooseUs() {
 
 function OurWorks() {
   const images = [
-    "/images/img7b.jpg",
+    "/images/dentist.jpg",
     "/images/stock11.jpg",
     "/images/img3.jpg",
     "/images/img4.jpg",
