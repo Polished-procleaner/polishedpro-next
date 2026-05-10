@@ -15,6 +15,7 @@ export default function ContactForm() {
     email: "",
     phone: "",
     service: "",
+    frequency: "",
     smsConsent: "",
   });
 
@@ -82,6 +83,11 @@ export default function ContactForm() {
           <option value="">Select a service category</option>
           <option value="residential">Residential Cleaning</option>
           <option value="commercial">Commercial Cleaning</option>
+        </select>
+        <select id="frequency" name="frequency" required value={formData.frequency} onChange={handleInputChange} className="custom-select text-base sm:text-sm w-full px-4 py-2 rounded-lg border-2 border-gray-200 bg-white focus:bg-white focus:outline-none focus:border-ring transition cursor-pointer">
+          <option value="">One-Time or Recurring?</option>
+          <option value="one-time">One-Time Service</option>
+          <option value="recurring">Recurring Service</option>
         </select>
       </div>
 
