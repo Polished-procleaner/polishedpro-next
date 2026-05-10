@@ -44,7 +44,7 @@ function HoverVideo({ image, video }) {
 export default function Features() {
   const items = [
     {
-      image: "/images/img1.jpg",
+      image: "/images/img7.jpg",
       video: "/videos/vid1.mp4",
       description:
         "An immaculate living space where sophistication and comfort blend in perfect harmony.",

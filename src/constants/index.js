@@ -4,7 +4,7 @@ export const services = [
     description:
       "Professional home cleaning that keeps every corner spotless, fresh, and welcoming.",
     imageUrl:
-      "/images/img7.jpg",
+      "/images/img1.jpg",
   },
   {
     title: "Commercial Cleaning",
