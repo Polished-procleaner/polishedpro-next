@@ -31,7 +31,7 @@ function HoverVideo({ image }) {
 
       <video
         ref={videoRef}
-        src="https://video.wixstatic.com/video/02498f_ff2b45f9c9fc482b95a489793c4112b2/720p/mp4/file.mp4"
+        src="/videos/vid1.mp4"
         className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         muted
         loop

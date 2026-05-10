@@ -134,7 +134,7 @@ export default function HomeSections() {
         <motion.div variants={fadeInUpVariant} className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10 aspect-video relative overflow-hidden">
             <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
-              <source src="https://video.wixstatic.com/video/02498f_b4654a02ad1a46c98a1cebe76d727c93/720p/mp4/file.mp4" type="video/mp4" />
+              <source src="/videos/vid5.mp4" type="video/mp4" />
             </video>
           </div>
           <div aria-hidden="true" className="relative">
