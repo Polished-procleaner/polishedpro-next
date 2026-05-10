@@ -43,7 +43,7 @@ export default function ContactForm() {
     });
     const dataToSend = { ...formData, date };
     const response = await fetch(
-      "https://hook.us1.make.com/1wsap6a9eiocgulf7rlij660a8ah1kis",
+      "https://hook.us2.make.com/97ko6ue9wjcl5qwc3l96d6wnf8uumfwf",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
