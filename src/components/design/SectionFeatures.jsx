@@ -44,7 +44,7 @@ function HoverVideo({ image, video }) {
 export default function Features() {
   const items = [
     {
-      image: "/images/img7.jpg",
+      image: "/images/stock2.jpg",
       video: "/videos/vid1.mp4",
       description:
         "An immaculate living space where sophistication and comfort blend in perfect harmony.",
@@ -56,13 +56,13 @@ export default function Features() {
         "Every detail shines with elegance, creating a modern, polished, and welcoming atmosphere.",
     },
     {
-      image: "/images/img3.jpg",
+      image: "/images/stock3.jpg",
       video: "/videos/vid3.mp4",
       description:
         "A refined and luminous space designed to reflect style, care, and distinction.",
     },
     {
-      image: "/images/img4.jpg",
+      image: "/images/stock10.jpg",
       video: "/videos/vid4.mp4",
       description:
         "High-level cleaning that enhances the natural beauty of your living area and transforms the entire ambiance.",
