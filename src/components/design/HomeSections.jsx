@@ -66,11 +66,11 @@ function WhyChooseUs() {
 
 function OurWorks() {
   const images = [
-    "https://static.wixstatic.com/media/02498f_be51d968845248379cba9e1c019a89da~mv2.jpg",
-    "https://static.wixstatic.com/media/02498f_90c6fd391f2f4a28a46a9ce828435f48~mv2.jpg",
-    "https://static.wixstatic.com/media/02498f_4917f176445c487380ad511cd184242e~mv2.jpg",
-    "https://static.wixstatic.com/media/02498f_a5a78a9241ca4c90927645f34441accb~mv2.jpeg",
-    "https://static.wixstatic.com/media/02498f_40aeeccca5aa4c9db4bbd3b570e0a16b~mv2.jpg",
+    "/images/img1.jpg",
+    "/images/img2.jpg",
+    "/images/img3.jpg",
+    "/images/img4.jpg",
+    "/images/img5.jpg",
   ];
   return (
     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeInUpVariant}>
@@ -96,7 +96,7 @@ export default function HomeSections() {
     <>
       <section className="relative flex items-center min-h-[calc(100vh-120px)]">
         <div className="absolute inset-0 bg-linear-to-r from-white/90 via-white/90 to-white/60 md:to-transparent z-1 w-full md:w-[70%]" />
-        <div className="absolute inset-0 bg-[url('https://static.wixstatic.com/media/02498f_1584ba7b2af84b1bbbd0f68057f8cb07~mv2.jpeg')] bg-cover bg-center z-0" />
+        <div className="absolute inset-0 bg-[url('/images/img6.jpg')] bg-cover bg-center z-0" />
         <Container classNameParent="z-3 w-full" className="flex flex-col md:flex-row items-center justify-between gap-8 py-16">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={containerVariant} className="flex flex-col gap-6 w-full">
             <motion.h1 variants={fadeInUpVariant} className="h1 text-gray-900">

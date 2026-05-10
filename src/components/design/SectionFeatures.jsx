@@ -45,25 +45,25 @@ export default function Features() {
   const items = [
     {
       image:
-        "https://static.wixstatic.com/media/02498f_be51d968845248379cba9e1c019a89da~mv2.jpg",
+        "/images/img1.jpg",
       description:
         "An immaculate living space where sophistication and comfort blend in perfect harmony.",
     },
     {
       image:
-        "https://static.wixstatic.com/media/02498f_90c6fd391f2f4a28a46a9ce828435f48~mv2.jpg",
+        "/images/img2.jpg",
       description:
         "Every detail shines with elegance, creating a modern, polished, and welcoming atmosphere.",
     },
     {
       image:
-        "https://static.wixstatic.com/media/02498f_536e1a3ef85c43a68c20b6f19e2f5e60~mv2.jpg",
+        "/images/img3.jpg",
       description:
         "A refined and luminous space designed to reflect style, care, and distinction.",
     },
     {
       image:
-        "https://static.wixstatic.com/media/02498f_ba34ac59451d40ed91ea8ba3d2e50433~mv2.jpg",
+        "/images/img4.jpg",
       description:
         "High-level cleaning that enhances the natural beauty of your living area and transforms the entire ambiance.",
     },

@@ -4,7 +4,7 @@ export const services = [
     description:
       "Professional home cleaning that keeps every corner spotless, fresh, and welcoming.",
     imageUrl:
-      "https://static.wixstatic.com/media/02498f_218b61e6e93e40a6ac41ef75d48c7280~mv2.jpg",
+      "/images/img7.jpg",
   },
   {
     title: "Commercial Cleaning",
