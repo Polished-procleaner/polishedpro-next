@@ -10,7 +10,7 @@ import {
 } from "@/constants/animationVariants";
 import BadgeTitle from "./BadgeTitle";
 
-function HoverVideo({ image }) {
+function HoverVideo({ image, video }) {
   const videoRef = useRef(null);
 
   return (
@@ -19,7 +19,7 @@ function HoverVideo({ image }) {
       onMouseEnter={() => videoRef.current?.play()}
       onMouseLeave={() => {
         videoRef.current?.pause();
-        videoRef.current.currentTime = 0; // (opcional) reinicia
+        videoRef.current.currentTime = 0;
       }}
     >
       <Image
@@ -31,7 +31,7 @@ function HoverVideo({ image }) {
 
       <video
         ref={videoRef}
-        src="/videos/vid1.mp4"
+        src={video}
         className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         muted
         loop
@@ -44,26 +44,26 @@ function HoverVideo({ image }) {
 export default function Features() {
   const items = [
     {
-      image:
-        "/images/img1.jpg",
+      image: "/images/img1.jpg",
+      video: "/videos/vid1.mp4",
       description:
         "An immaculate living space where sophistication and comfort blend in perfect harmony.",
     },
     {
-      image:
-        "/images/img2.jpg",
+      image: "/images/img2.jpg",
+      video: "/videos/vid2.mp4",
       description:
         "Every detail shines with elegance, creating a modern, polished, and welcoming atmosphere.",
     },
     {
-      image:
-        "/images/img3.jpg",
+      image: "/images/img3.jpg",
+      video: "/videos/vid3.mp4",
       description:
         "A refined and luminous space designed to reflect style, care, and distinction.",
     },
     {
-      image:
-        "/images/img4.jpg",
+      image: "/images/img4.jpg",
+      video: "/videos/vid4.mp4",
       description:
         "High-level cleaning that enhances the natural beauty of your living area and transforms the entire ambiance.",
     },
@@ -114,7 +114,7 @@ export default function Features() {
               variants={fadeInUpVariant}
               className="flex flex-col gap-4 group"
             >
-              <HoverVideo image={item.image} description={item.description} />
+              <HoverVideo image={item.image} video={item.video} />
 
               <p className="text-gray-600 text-sm text-center">
                 {item.description}
