@@ -50,7 +50,7 @@ export default function Features() {
         "An immaculate living space where sophistication and comfort blend in perfect harmony.",
     },
     {
-      image: "/images/img2.jpg",
+      image: "/images/stock20.jpg",
       video: "/videos/vid2.mp4",
       description:
         "Every detail shines with elegance, creating a modern, polished, and welcoming atmosphere.",
