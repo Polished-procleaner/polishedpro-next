@@ -71,6 +71,8 @@ function OurWorks() {
     "/images/school.jpg",
     "/images/img4.jpg",
     "/images/stock11.jpg",
+    "/images/stock23.jpg",
+    "/images/stock30.jpg",
   ];
   return (
     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeInUpVariant}>
