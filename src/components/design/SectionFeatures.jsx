@@ -56,7 +56,7 @@ export default function Features() {
         "Every detail shines with elegance, creating a modern, polished, and welcoming atmosphere.",
     },
     {
-      image: "/images/stock3.jpg",
+      image: "/images/stock12.jpg",
       video: "/videos/vid3.mp4",
       description:
         "A refined and luminous space designed to reflect style, care, and distinction.",
